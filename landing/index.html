@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>공동구매보증 | 광주전남식자재협동조합</title>
+  <meta name="description" content="중소기업중앙회, 기업은행, 신용보증기금·기술보증기금이 함께하는 B2B 전용 공동구매보증. 연 매출 7억 이상 중소기업·소상공인이라면 당일 현금 입금으로 현금흐름을 개선하세요.">
+  <meta property="og:title" content="공동구매보증 | 광주전남식자재협동조합">
+  <meta property="og:description" content="중소기업중앙회 인가, 기업은행·신용보증기금·기술보증기금 협약. B2B 납품 대금 걱정 없이 사업하세요.">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="scroll-bar"></div>
+
+  <!-- ==================== NAVBAR ==================== -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <div class="navbar-inner">
+        <a href="#" class="navbar-logo">
+          <img src="images/logos/조합로고.png" alt="광주전남식자재협동조합" onerror="this.style.display='none'">
+          <div class="navbar-logo-text">
+            광주전남식자재협동조합
+            <span>공동구매보증</span>
+          </div>
+        </a>
+        <nav class="navbar-links">
+          <a href="#pain">서비스 소개</a>
+          <a href="#benefits">주요 혜택</a>
+          <a href="#process">이용 절차</a>
+          <a href="#faq">자주 묻는 질문</a>
+        </nav>
+        <div class="navbar-cta">
+          <a href="#form" class="btn btn-primary">상담 신청하기</a>
+        </div>
+        <button class="hamburger" id="hamburger" aria-label="메뉴 열기">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 모바일 메뉴 -->
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-menu-close" id="mobileMenuClose" aria-label="메뉴 닫기">✕</button>
+    <a href="#pain" onclick="closeMobileMenu()">서비스 소개</a>
+    <a href="#benefits" onclick="closeMobileMenu()">주요 혜택</a>
+    <a href="#process" onclick="closeMobileMenu()">이용 절차</a>
+    <a href="#faq" onclick="closeMobileMenu()">자주 묻는 질문</a>
+    <a href="#form" class="btn btn-primary" onclick="closeMobileMenu()">상담 신청하기</a>
+  </div>
+
+  <!-- ==================== HERO ==================== -->
+  <section id="hero" class="hero">
+    <div class="hero-media">
+      <video class="hero-video" autoplay loop muted playsinline poster="images/hero/배경이미지.png">
+        <source src="images/hero/배경영상.mp4" type="video/mp4">
+      </video>
+      <img class="hero-bg-img" src="images/hero/배경이미지.png" alt="공동구매보증 히어로" style="display:none;" id="heroBgFallback">
+      <div class="hero-overlay"></div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-eyebrow">
+        <span><span class="nowrap">중소기업중앙회 인가</span> · <span class="nowrap">기업은행</span> · <span class="nowrap">신용보증기금</span> · <span class="nowrap">기술보증기금 협약</span></span>
+      </div>
+      <p class="hero-rotator" id="heroRotator">
+        <span class="rotator-item is-active">납품했는데 <span class="nowrap">돈은 언제 들어오나요?</span></span>
+        <span class="rotator-item">거래처 <span class="nowrap">정산 60일,</span> <span class="nowrap">90일…</span></span>
+        <span class="rotator-item">이제는 <span class="nowrap">당일 입금</span>입니다.</span>
+      </p>
+      <h1 class="hero-title">
+        <span class="hero-title-line line-cream"><span class="nowrap">납품 당일,</span></span>
+        <span class="hero-title-line"><span class="nowrap">3억까지</span> <span class="text-gradient title-shine" style="white-space:nowrap;">현금 입금</span></span>
+      </h1>
+      <p class="hero-sub">
+        <span class="nowrap">공공기관과 1금융권</span>이 함께하는 <span class="nowrap">B2B 전용 보증</span>.<br>
+        사장님, 더 이상 <span class="nowrap">미수금 걱정</span>하지 마세요.
+      </p>
+      <div class="hero-cta">
+        <a href="#form" class="btn btn-primary btn-large btn-arrow hero-cta-primary is-magnetic">상담 신청하기</a>
+        <a href="#pain" class="btn btn-outline btn-large hero-cta-outline">서비스 알아보기</a>
+      </div>
+      <div class="hero-chips">
+        <span class="hero-chip"><span class="nowrap">중기중앙회 인가</span></span>
+        <span class="hero-chip"><span class="nowrap">기업은행·신보·기보 협약</span></span>
+        <span class="hero-chip"><span class="nowrap">보증비율 95%</span></span>
+        <span class="hero-chip"><span class="nowrap">5년 0.5%P 우대</span></span>
+      </div>
+    </div>
+    <div class="hero-scroll-hint">
+      <span>스크롤</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ==================== TRUST BADGES ==================== -->
+  <section id="trust" class="trust">
+    <div class="container">
+      <p class="trust-label">공식 인가 및 협약 파트너</p>
+    </div>
+    <div class="trust-track-wrap">
+      <div class="trust-track" id="trustTrack">
+        <!-- 4개 로고 × 2벌 (마퀴용) -->
+        <div class="trust-logo trust-logo--xl">
+          <img src="images/logos/중기중앙회.jpg" alt="중소기업중앙회" onerror="this.style.display='none'">
+        </div>
+        <div class="trust-logo trust-logo--xl">
+          <img src="images/logos/기업은행.png" alt="IBK기업은행" onerror="this.style.display='none'">
+        </div>
+        <div class="trust-logo">
+          <img src="images/logos/신용보증기금.jpg" alt="신용보증기금" onerror="this.style.display='none'">
+        </div>
+        <div class="trust-logo">
+          <img src="images/logos/기술보증기금.png" alt="기술보증기금" onerror="this.style.display='none'">
+        </div>
+        <!-- 복사본 -->
+        <div class="trust-logo trust-logo--xl" aria-hidden="true">
+          <img src="images/logos/중기중앙회.jpg" alt="" onerror="this.style.display='none'">
+        </div>
+        <div class="trust-logo trust-logo--xl" aria-hidden="true">
+          <img src="images/logos/기업은행.png" alt="" onerror="this.style.display='none'">
+        </div>
+        <div class="trust-logo" aria-hidden="true">
+          <img src="images/logos/신용보증기금.jpg" alt="" onerror="this.style.display='none'">
+        </div>
+        <div class="trust-logo" aria-hidden="true">
+          <img src="images/logos/기술보증기금.png" alt="" onerror="this.style.display='none'">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== PAIN POINT ==================== -->
+  <section id="pain" class="section">
+    <div class="container">
+      <div class="pain-grid">
+        <div class="pain-text">
+          <div class="section-label" data-reveal="0"><span>문제 인식</span></div>
+          <h2 class="section-title" data-reveal="1">
+            <span class="nowrap">납품은 했는데</span><br>
+            <span class="text-gradient" style="white-space:nowrap;">돈은 언제 들어오나요?</span>
+          </h2>
+          <p class="section-sub" data-reveal="2">
+            <span class="nowrap">B2B 거래</span>에서 <span class="nowrap">현금 흐름</span>이 막히면 성장도 멈춥니다.<br>
+            이런 상황이 익숙하신가요?
+          </p>
+          <div class="pain-problems">
+            <div class="pain-problem-item">
+              <span class="quote-mark">"</span>
+              <p>매출은 늘고 있는데 통장 잔액은 왜 항상 부족할까요? 선정산은 우리가 하는데 거래처는 한참 후에 줘요.</p>
+            </div>
+            <div class="pain-problem-item">
+              <span class="quote-mark">"</span>
+              <p>매입처에 빠른 정산을 해주면 단가를 낮춰준다는데, 현금이 없어서 못 하고 있어요.</p>
+            </div>
+            <div class="pain-problem-item">
+              <span class="quote-mark">"</span>
+              <p>신사업 준비 중인데 지금 당장 현금이 필요해요. 대출은 문턱이 너무 높고요.</p>
+            </div>
+          </div>
+        </div>
+        <div class="pain-image-wrap" data-reveal="1">
+          <img src="images/sections/미수금.png" alt="납품 후 미수금으로 고민하는 사장님">
+        </div>
+      </div>
+
+      <!-- 기본 요건 — 비대칭 카드 + 라인 아이콘 + 큰 숫자 -->
+      <div class="requirements" data-reveal="0">
+        <div class="requirements-head">
+          <span class="requirements-eyebrow">REQUIREMENTS</span>
+          <p class="requirements-title">
+            <span class="nowrap">공동구매보증</span> <span class="nowrap">기본 요건</span>
+          </p>
+          <p class="requirements-sub">아래 3가지 조건을 충족하면 누구나 신청 가능합니다.</p>
+        </div>
+        <div class="requirements-list">
+          <!-- 카드 1: 강조 (큰 카드) -->
+          <div class="req-card req-card--featured">
+            <div class="req-card-icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M24 6 L40 14 V34 L24 42 L8 34 V14 Z"/>
+                <path d="M24 6 V42"/>
+                <path d="M8 14 L24 22 L40 14"/>
+              </svg>
+            </div>
+            <div class="req-card-meta">
+              <span class="req-card-label">연 매출액</span>
+              <p class="req-card-value">
+                <span class="req-num">7</span><span class="req-unit">억</span>
+              </p>
+              <p class="req-card-detail">원 이상 / B2B 거래 기준</p>
+            </div>
+          </div>
+          <!-- 카드 2 -->
+          <div class="req-card">
+            <div class="req-card-icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="8" y="12" width="32" height="28" rx="2"/>
+                <path d="M8 20 H40"/>
+                <path d="M16 8 V14"/>
+                <path d="M32 8 V14"/>
+                <circle cx="24" cy="30" r="4"/>
+              </svg>
+            </div>
+            <div class="req-card-meta">
+              <span class="req-card-label">사업 기간</span>
+              <p class="req-card-value">
+                <span class="req-num">1</span><span class="req-unit">년+</span>
+              </p>
+              <p class="req-card-detail">개업 후 1년 이상 사업자</p>
+            </div>
+          </div>
+          <!-- 카드 3 -->
+          <div class="req-card">
+            <div class="req-card-icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M10 40 V18 L24 8 L38 18 V40"/>
+                <path d="M6 40 H42"/>
+                <rect x="20" y="26" width="8" height="14"/>
+                <path d="M16 22 H18"/>
+                <path d="M30 22 H32"/>
+              </svg>
+            </div>
+            <div class="req-card-meta">
+              <span class="req-card-label">기업 형태</span>
+              <p class="req-card-value req-card-value--text">
+                <span class="nowrap">중소기업</span>
+              </p>
+              <p class="req-card-detail"><span class="nowrap">중소기업·소상공인</span> 모두 가능</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== KEY BENEFITS ==================== -->
+  <section id="benefits" class="section section--cream benefits">
+    <div class="container">
+      <div class="section-header" style="text-align:center;">
+        <div class="section-label" style="justify-content:center;" data-reveal="0"><span>핵심 혜택</span></div>
+        <h2 class="section-title" data-reveal="1"><span class="nowrap">공동구매보증</span>이<br>특별한 이유</h2>
+        <p class="section-sub" data-reveal="2"><span class="nowrap">대부업체가 아닙니다.</span> <span class="nowrap">공공기관·1금융권</span>이 함께하는 <span class="nowrap">공식 금융 제도</span>입니다.</p>
+      </div>
+
+      <div class="benefits-layout">
+        <div class="benefits-list">
+          <article class="benefit-item" data-reveal="0">
+            <span class="benefit-bar"></span>
+            <span class="benefit-index">01</span>
+            <div class="benefit-icon"><img src="images/icons/순환.svg" alt="" onerror="this.style.display='none';"></div>
+            <h3 class="benefit-headline" data-count="3" data-suffix="억">3억</h3>
+            <p class="benefit-label"><span class="nowrap">즉시 재활용</span> — <span class="nowrap">리볼빙 방식</span></p>
+            <p class="benefit-desc"><span class="nowrap">최장 180일</span> 내 보증액 상환 시 <span class="nowrap">즉시 3억 재활용</span> 가능. 반복 활용으로 현금흐름 회전.</p>
+          </article>
+          <article class="benefit-item" data-reveal="1">
+            <span class="benefit-bar"></span>
+            <span class="benefit-index">02</span>
+            <div class="benefit-icon"><img src="images/icons/수수료.svg" alt="" onerror="this.style.display='none';"></div>
+            <h3 class="benefit-headline" data-count="0.5" data-suffix="%P">0.5%P</h3>
+            <p class="benefit-label"><span class="nowrap">5년간 보증료 우대</span> + <span class="nowrap">보증비율 95%</span></p>
+            <p class="benefit-desc"><span class="nowrap">신용보증기관 우대 보증료</span> <span class="nowrap">5년간 0.5%P 인하</span>, <span class="nowrap">보증비율 95%</span> 적용.</p>
+          </article>
+          <article class="benefit-item" data-reveal="2">
+            <span class="benefit-bar"></span>
+            <span class="benefit-index">03</span>
+            <div class="benefit-icon"><img src="images/icons/입금.svg" alt="" onerror="this.style.display='none';"></div>
+            <h3 class="benefit-headline benefit-headline--text">당일 입금</h3>
+            <p class="benefit-label"><span class="nowrap">판매 기업 즉시 정산</span></p>
+            <p class="benefit-desc"><span class="nowrap">납품 당일 현금 입금 보장.</span> <span class="nowrap">거래처 정산 기간</span>에 좌우되지 않습니다.</p>
+          </article>
+          <article class="benefit-item" data-reveal="3">
+            <span class="benefit-bar"></span>
+            <span class="benefit-index">04</span>
+            <div class="benefit-icon"><img src="images/icons/신뢰.svg" alt="" onerror="this.style.display='none';"></div>
+            <h3 class="benefit-headline" data-count="3" data-suffix="중">3중</h3>
+            <p class="benefit-label"><span class="nowrap">공공기관·1금융권·보증기관</span> 협업</p>
+            <p class="benefit-desc"><span class="nowrap">중소기업중앙회 인가</span>, <span class="nowrap">기업은행 협약</span>, <span class="nowrap">신보·기보 보증</span>으로 <span class="nowrap">3중 신뢰 체계</span>.</p>
+          </article>
+        </div>
+
+        <aside class="benefits-trust" id="benefitsTrust">
+          <p class="benefits-trust-title">공식 인가 · 협약</p>
+          <div class="benefits-trust-logos">
+            <div class="trust-tile">
+              <img src="images/logos/중기중앙회.jpg" alt="중소기업중앙회" onerror="this.style.display='none';">
+              <span><span class="nowrap">중소기업중앙회</span><br>인가</span>
+            </div>
+            <div class="trust-tile">
+              <img src="images/logos/기업은행.png" alt="IBK기업은행" onerror="this.style.display='none';">
+              <span><span class="nowrap">IBK기업은행</span><br>협약</span>
+            </div>
+            <div class="trust-tile">
+              <img src="images/logos/신용보증기금.jpg" alt="신용보증기금" onerror="this.style.display='none';">
+              <span><span class="nowrap">신용보증기금</span><br>협약</span>
+            </div>
+            <div class="trust-tile">
+              <img src="images/logos/기술보증기금.png" alt="기술보증기금" onerror="this.style.display='none';">
+              <span><span class="nowrap">기술보증기금</span><br>협약</span>
+            </div>
+          </div>
+          <p class="benefits-trust-slogan"><span class="nowrap">사금융이 아닙니다.</span><br><span class="nowrap">공공·1금융권 기반</span> <span class="nowrap">공식 금융 솔루션.</span></p>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== USE CASES ==================== -->
+  <section id="cases" class="section">
+    <div class="container">
+      <div style="text-align:center;">
+        <div class="section-label" style="justify-content:center;" data-reveal="0"><span>대상 업종</span></div>
+        <h2 class="section-title" data-reveal="1">이런 분들께<br>꼭 맞습니다</h2>
+        <p class="section-sub" data-reveal="2">식자재 관련 B2B 거래를 하고 계신다면 지금 바로 활용하세요.</p>
+      </div>
+      <div class="cases-grid">
+        <div class="case-card" data-reveal="0">
+          <img src="images/sections/유통사.jpg" alt="식자재 도소매 유통업자">
+          <div class="case-overlay">
+            <span class="case-tag">식자재 유통</span>
+            <p class="case-title">도소매 유통업자</p>
+            <p class="case-desc">대량 매입 후 정산 대기 중인 유통사의 현금흐름 개선</p>
+          </div>
+        </div>
+        <div class="case-card" data-reveal="1">
+          <img src="images/sections/제조사.png" alt="식자재 제조업자">
+          <div class="case-overlay">
+            <span class="case-tag">식자재 제조</span>
+            <p class="case-title">제조업자</p>
+            <p class="case-desc">납품 후 대금 회수까지 발생하는 운영 자금 공백 해소</p>
+          </div>
+        </div>
+        <div class="case-card" data-reveal="2">
+          <img src="images/sections/식당.png" alt="식당 자영업자">
+          <div class="case-overlay">
+            <span class="case-tag">외식업</span>
+            <p class="case-title">식당 자영업자</p>
+            <p class="case-desc">식자재 대량 구매로 원가 절감, 빠른 정산으로 운영 안정</p>
+          </div>
+        </div>
+        <div class="case-card" data-reveal="3">
+          <img src="images/sections/폐기물.png" alt="식자재 폐기물 유통업자">
+          <div class="case-overlay">
+            <span class="case-tag">폐기물 유통</span>
+            <p class="case-title">식자재 폐기물 유통업자</p>
+            <p class="case-desc">B2B 거래 구조에서 발생하는 대금 지연 리스크 해소</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== PROCESS ==================== -->
+  <section id="process" class="section process">
+    <div class="container">
+      <div style="text-align:center;">
+        <div class="section-label" style="justify-content:center;" data-reveal="0"><span>진행 절차</span></div>
+        <h2 class="section-title" data-reveal="1"><span class="nowrap">신청부터 활용까지</span><br><span class="text-gradient" style="white-space:nowrap;">7단계</span></h2>
+        <p class="section-sub section-sub--light" data-reveal="2">복잡하지 않습니다. <span class="nowrap">상담 신청 한 번</span>으로 시작하세요.</p>
+      </div>
+      <div class="process-steps" id="processSteps">
+        <div class="step" data-reveal="0">
+          <div class="step-num">
+            <span class="step-num-label">1</span>
+            <img src="images/icons/단계1.svg" alt="상담 신청" onerror="this.outerHTML='<span style=&quot;font-size:24px&quot;>📝</span>'">
+          </div>
+          <div class="step-text">
+            <p class="step-title"><span class="nowrap">상담 신청</span></p>
+            <p class="step-desc"><span class="nowrap">하단 폼 작성</span> 후 제출</p>
+          </div>
+        </div>
+        <div class="step" data-reveal="1">
+          <div class="step-num">
+            <span class="step-num-label">2</span>
+            <img src="images/icons/단계2.svg" alt="조합 연락" onerror="this.outerHTML='<span style=&quot;font-size:24px&quot;>📞</span>'">
+          </div>
+          <div class="step-text">
+            <p class="step-title"><span class="nowrap">조합 연락</span></p>
+            <p class="step-desc"><span class="nowrap">담당자 확인</span> 후 연락</p>
+          </div>
+        </div>
+        <div class="step" data-reveal="2">
+          <div class="step-num">
+            <span class="step-num-label">3</span>
+            <img src="images/icons/단계3.svg" alt="서류 작성" onerror="this.outerHTML='<span style=&quot;font-size:24px&quot;>📋</span>'">
+          </div>
+          <div class="step-text">
+            <p class="step-title"><span class="nowrap">서류 작성</span></p>
+            <p class="step-desc"><span class="nowrap">필요 서류</span> 안내 및 준비</p>
+          </div>
+        </div>
+        <div class="step" data-reveal="3">
+          <div class="step-num">
+            <span class="step-num-label">4</span>
+            <img src="images/icons/단계4.svg" alt="보증 심사" onerror="this.outerHTML='<span style=&quot;font-size:24px&quot;>🔍</span>'">
+          </div>
+          <div class="step-text">
+            <p class="step-title"><span class="nowrap">보증 심사</span></p>
+            <p class="step-desc"><span class="nowrap">신용보증기금</span>·<span class="nowrap">기술보증기금</span> 심사</p>
+          </div>
+        </div>
+        <div class="step" data-reveal="4">
+          <div class="step-num">
+            <span class="step-num-label">5</span>
+            <img src="images/icons/단계5.svg" alt="통장 개설" onerror="this.outerHTML='<span style=&quot;font-size:24px&quot;>🏦</span>'">
+          </div>
+          <div class="step-text">
+            <p class="step-title"><span class="nowrap">기업은행 개설</span></p>
+            <p class="step-desc"><span class="nowrap">전용 계좌 개설</span></p>
+          </div>
+        </div>
+        <div class="step" data-reveal="5">
+          <div class="step-num">
+            <span class="step-num-label">6</span>
+            <img src="images/icons/단계6.svg" alt="보증서 발급" onerror="this.outerHTML='<span style=&quot;font-size:24px&quot;>📜</span>'">
+          </div>
+          <div class="step-text">
+            <p class="step-title"><span class="nowrap">보증서 발급</span></p>
+            <p class="step-desc"><span class="nowrap">공식 보증서</span> 수령</p>
+          </div>
+        </div>
+        <div class="step" data-reveal="6">
+          <div class="step-num">
+            <span class="step-num-label">7</span>
+            <img src="images/icons/단계7.svg" alt="플랫폼 활용" onerror="this.outerHTML='<span style=&quot;font-size:24px&quot;>🚀</span>'">
+          </div>
+          <div class="step-text">
+            <p class="step-title"><span class="nowrap">플랫폼 활용</span></p>
+            <p class="step-desc"><span class="nowrap">가입 후 즉시 사용</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FAQ ==================== -->
+  <section id="faq" class="section">
+    <div class="container">
+      <div style="text-align:center;">
+        <div class="section-label" style="justify-content:center;" data-reveal="0"><span>FAQ</span></div>
+        <h2 class="section-title" data-reveal="1">자주 묻는 질문</h2>
+        <p class="section-sub" data-reveal="2">더 궁금하신 점은 하단 상담 신청으로 문의해 주세요.</p>
+      </div>
+      <div class="faq-list" data-reveal="0">
+        <div class="faq-item">
+          <div class="faq-q">
+            <span class="faq-q-text">신청 자격이 어떻게 되나요?</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-a">
+            <div class="faq-a-inner">중소기업 또는 소상공인으로, 연 매출액 7억 원 이상이고 개업 후 1년이 넘은 사업자라면 신청 가능합니다. 식자재 관련 도소매·제조·외식업 등 B2B 거래를 영위하는 업체에 적합합니다.</div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">
+            <span class="faq-q-text">보증 한도와 조건은 어떻게 되나요?</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-a">
+            <div class="faq-a-inner">리볼빙 방식으로 최대 3억 원을 운용할 수 있습니다. 최장 180일 내 보증액을 상환하면 즉시 재활용이 가능하며, 보증비율은 95%가 적용됩니다. 자세한 한도는 개별 심사 결과에 따라 달라질 수 있습니다.</div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">
+            <span class="faq-q-text">수수료는 얼마인가요?</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-a">
+            <div class="faq-a-inner">신용보증기관 우대 보증을 통해 5년간 보증료 0.5%P를 감면받을 수 있습니다. 정확한 수수료는 기업 규모와 신용 등급에 따라 산정되며, 상담 후 안내해 드립니다.</div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">
+            <span class="faq-q-text">심사 기간은 얼마나 걸리나요?</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-a">
+            <div class="faq-a-inner">상담 신청 후 담당자가 연락하여 서류 안내를 드립니다. 서류 준비 완료 후 보증 심사, 기업은행 통장 개설, 보증서 발급 순으로 진행됩니다. 정확한 소요 기간은 개별 상황에 따라 다르므로 상담 시 확인 부탁드립니다.</div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">
+            <span class="faq-q-text">기업은행 통장이 없으면 어떻게 하나요?</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-a">
+            <div class="faq-a-inner">절차 중 기업은행 전용 통장 개설 단계가 포함되어 있어, 기존에 계좌가 없어도 진행 가능합니다. 담당자가 개설 절차를 안내해 드립니다.</div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">
+            <span class="faq-q-text">사금융(대부업체)과 어떻게 다른가요?</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-a">
+            <div class="faq-a-inner">공동구매보증은 중소기업중앙회가 인가하고 기업은행, 신용보증기금, 기술보증기금과 협약한 공식 제도입니다. 사금융이 아닌 공공기관·1금융권 기반의 신뢰 있는 금융 솔루션입니다.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== LEAD FORM ==================== -->
+  <section id="form" class="section form-section">
+    <div class="container">
+      <div class="form-grid">
+        <!-- 좌측 이미지 -->
+        <div class="form-image-wrap" data-reveal="0">
+          <img src="images/sections/상담이미지.png" alt="구매보증 상담">
+          <div class="form-image-overlay">
+            <div class="form-image-cta">
+              <p>지금 바로 시작하세요</p>
+              <strong>현금흐름 걱정 없는<br>사업을 만들어 드립니다</strong>
+            </div>
+          </div>
+        </div>
+        <!-- 우측 폼 -->
+        <div class="form-box" data-reveal="1">
+          <h2 class="form-box-title">구매보증 상담 신청</h2>
+          <p class="form-box-sub">간단한 정보를 입력해 주시면 담당자가 직접 연락드립니다.<br>모든 정보는 상담 목적으로만 활용됩니다.</p>
+          <form id="contactForm" novalidate>
+            <div class="form-fields">
+              <div class="form-row">
+                <div class="field">
+                  <label for="f-name">대표자명 <span class="required">*</span></label>
+                  <input type="text" id="f-name" name="name" placeholder="홍길동" required>
+                </div>
+                <div class="field">
+                  <label for="f-company">업체명 <span class="required">*</span></label>
+                  <input type="text" id="f-company" name="company" placeholder="(주)예시상회" required>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="field">
+                  <label for="f-bizno">사업자번호 <span class="required">*</span></label>
+                  <input type="text" id="f-bizno" name="bizno" placeholder="000-00-00000" maxlength="12" required>
+                </div>
+                <div class="field">
+                  <label for="f-phone">연락처 <span class="required">*</span></label>
+                  <input type="tel" id="f-phone" name="phone" placeholder="010-0000-0000" required>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="field">
+                  <label for="f-year">개업연도 <span class="required">*</span></label>
+                  <input type="number" id="f-year" name="year" placeholder="2020" min="1900" required>
+                </div>
+                <div class="field">
+                  <label for="f-revenue">연 매출액 <span class="required">*</span></label>
+                  <select id="f-revenue" name="revenue" required>
+                    <option value="" disabled selected>선택해 주세요</option>
+                    <option value="7억 미만">7억 미만</option>
+                    <option value="7억~20억">7억 ~ 20억</option>
+                    <option value="20억~50억">20억 ~ 50억</option>
+                    <option value="50억 이상">50억 이상</option>
+                  </select>
+                </div>
+              </div>
+              <div class="field">
+                <label for="f-items">취급 품목</label>
+                <input type="text" id="f-items" name="items" placeholder="예: 냉동식품, 채소류, 수산물 등">
+              </div>
+              <div class="form-privacy">
+                <input type="checkbox" id="f-privacy" name="privacy" required>
+                <label for="f-privacy">개인정보 수집·이용에 동의합니다. 수집된 정보는 상담 목적으로만 활용되며 제3자에게 제공되지 않습니다.</label>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary btn-large form-submit btn-arrow is-magnetic">
+              상담 신청하기
+            </button>
+            <div class="form-result" id="formResult"></div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="footer" id="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <span class="nowrap">광주전남식자재협동조합</span>
+            <span><span class="nowrap">공동구매보증 서비스</span></span>
+          </div>
+          <div class="footer-info">
+            <strong>주소</strong> <span class="nowrap">광주광역시 광산구</span> <span class="nowrap">평동산단8번로 28-6</span><span class="nowrap">(연산동)</span><br>
+            <strong>대표자</strong> 유동주<br>
+            <strong>사업자번호</strong> <span class="nowrap">410-82-21509</span><br>
+            <strong>대표 전화</strong> <span class="nowrap">062-943-3608</span><br>
+            <strong>이메일</strong> <span class="nowrap">gfc2013@naver.com</span>
+          </div>
+        </div>
+        <div>
+          <p class="footer-col-title">서비스</p>
+          <div class="footer-col-links">
+            <a href="#pain">서비스 소개</a>
+            <a href="#benefits">주요 혜택</a>
+            <a href="#cases">대상 업종</a>
+            <a href="#process">이용 절차</a>
+          </div>
+        </div>
+        <div>
+          <p class="footer-col-title">안내</p>
+          <div class="footer-col-links">
+            <a href="#faq">자주 묻는 질문</a>
+            <a href="#form">상담 신청</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">© 2025 광주전남식자재협동조합. All rights reserved.</p>
+        <div class="footer-partners">
+          <img src="images/logos/중기중앙회.jpg" alt="중소기업중앙회" onerror="this.style.display='none'">
+          <img src="images/logos/기업은행.png" alt="IBK기업은행" onerror="this.style.display='none'">
+          <img src="images/logos/신용보증기금.jpg" alt="신용보증기금" onerror="this.style.display='none'">
+          <img src="images/logos/기술보증기금.png" alt="기술보증기금" onerror="this.style.display='none'">
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
