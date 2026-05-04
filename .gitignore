@@ -1,0 +1,23 @@
+# 민감 파일
+*.pdf
+*.hwp
+
+# 개발 내부 문서
+CLAUDE.md
+tasks.md
+phases.md
+landing/images/README.md
+
+# 사업자등록증 등 개인정보 포함 파일
+광주전남식자재*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# 에디터
+.vscode/
+.idea/
+
+# Claude Code 내부
+.claude/
