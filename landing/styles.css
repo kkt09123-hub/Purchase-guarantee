@@ -1657,6 +1657,22 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
   .hamburger { display: flex; }
 
   .hero { align-items: flex-start; }
+  /* 모바일: 좌/우 분리감 제거 — 세로 그라디언트로 통일 */
+  .hero-video,
+  .hero-bg-img { object-position: center center; }
+  .hero-overlay {
+    background: linear-gradient(
+      180deg,
+      rgba(11, 31, 74, 0.45) 0%,
+      rgba(11, 31, 74, 0.58) 55%,
+      rgba(11, 31, 74, 0.78) 100%
+    );
+  }
+  .hero-media::before {
+    background:
+      radial-gradient(ellipse 90% 40% at 50% 25%, rgba(196,169,106,0.09) 0%, transparent 60%),
+      radial-gradient(ellipse 90% 60% at 50% 95%, rgba(26,63,143,0.35) 0%, transparent 60%);
+  }
   .hero-content { padding: 110px 20px 80px; }
   .hero-eyebrow {
     gap: 10px;
