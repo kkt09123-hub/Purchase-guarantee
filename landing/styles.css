@@ -115,6 +115,9 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
   letter-spacing: -0.02em;
   word-break: keep-all;
 }
+.section-title--lg {
+  font-size: clamp(32px, 4.5vw, 50px);
+}
 .section-sub {
   font-size: 17px;
   color: var(--text-gray);
@@ -276,10 +279,13 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
 .navbar.scrolled .navbar-links a:hover { color: var(--gold-dark); opacity: 1; }
 .navbar-cta { flex-shrink: 0; }
 .navbar-cta .btn-primary {
-  background: var(--gold);
+  background: #D6B97A;
   color: var(--navy-deep);
   font-weight: 800;
   letter-spacing: 0.01em;
+}
+.navbar-cta .btn-primary:hover {
+  background: #DECA8E;
 }
 .navbar.scrolled .navbar-cta .btn-primary {
   box-shadow: 0 6px 18px rgba(196,169,106,0.32);
@@ -348,7 +354,7 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
 /* ---------- 7. HERO ---------- */
 .hero {
   position: relative;
-  min-height: 100dvh;
+  min-height: 90dvh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -431,7 +437,7 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
   word-break: keep-all;
 }
 .hero-title {
-  font-size: clamp(40px, 7vw, 88px);
+  font-size: clamp(38px, 6vw, 72px);
   font-weight: 800;
   line-height: 1.05;
   letter-spacing: -0.035em;
@@ -439,20 +445,34 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
   margin-bottom: 32px;
   word-break: keep-all;
 }
-.hero-title .line-cream { color: rgba(247,244,238,0.88); }
+.hero-title .line-cream { color: var(--white); }
 .hero-title-line:nth-child(2) {
   font-size: clamp(48px, 8vw, 104px);
   font-weight: 900;
   letter-spacing: -0.04em;
 }
 .hero-sub {
-  font-size: clamp(18px, 1.9vw, 24px);
+  font-size: clamp(16px, 1.9vw, 19px);
   font-weight: 500;
-  color: rgba(255,255,255,0.82);
+  color: rgba(255,255,255,0.88);
   line-height: 1.65;
   max-width: 720px;
   margin: 0 auto 48px;
   word-break: keep-all;
+}
+.hero-partner-line {
+  font-size: clamp(12px, 1.2vw, 14px);
+  font-weight: 500;
+  color: rgba(247,232,200,0.80);
+  letter-spacing: 0.04em;
+  margin-bottom: 28px;
+  word-break: keep-all;
+  opacity: 0;
+  animation: heroPartnerIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.50s both;
+}
+@keyframes heroPartnerIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 .hero-cta {
   display: flex;
@@ -711,7 +731,7 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
 
 /* ---------- 8. TRUST BADGES ---------- */
 .trust {
-  padding: 48px 0;
+  padding: 32px 0;
   border-bottom: 1px solid var(--border);
   overflow: hidden;
 }
@@ -740,8 +760,8 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
   transition: opacity 0.3s var(--ease-spring), transform 0.3s var(--ease-spring);
 }
 .trust-logo:hover { opacity: 1; transform: scale(1.18); }
-.trust-logo img { height: 60px; width: auto; object-fit: contain; }
-.trust-logo--xl img { height: 120px; }
+.trust-logo img { height: 64px; width: auto; object-fit: contain; }
+.trust-logo--xl img { height: 128px; }
 @keyframes marquee {
   0%   { transform: translateX(0); }
   100% { transform: translateX(-50%); }
@@ -779,9 +799,9 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
   margin-top: -2px;
 }
 .pain-problem-item p {
-  font-size: 14px;
+  font-size: 16px;
   color: var(--text-mid);
-  line-height: 1.6;
+  line-height: 1.7;
   word-break: keep-all;
 }
 .pain-image-wrap {
@@ -885,7 +905,7 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
   border-color: rgba(196,169,106,0.45);
 }
 .req-card--featured {
-  background: linear-gradient(135deg, var(--navy-deep) 0%, var(--navy) 100%);
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
   color: var(--white);
   border-color: transparent;
   box-shadow: 0 8px 28px rgba(11,31,74,0.18);
@@ -967,6 +987,38 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
   margin-top: 4px;
 }
 .req-card--featured .req-card-detail { color: rgba(255,255,255,0.65); }
+
+/* 가로 배치 카드 */
+.requirements-list--row {
+  grid-template-columns: 1fr 1fr 1fr;
+}
+.req-card--horizontal {
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+  padding: 24px 28px;
+}
+.req-card--horizontal .req-card-icon {
+  flex-shrink: 0;
+}
+.req-card--horizontal .req-card-meta {
+  gap: 6px;
+}
+.req-card--horizontal .req-card-label {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+.req-card-value--inline {
+  font-size: 17px;
+  font-weight: 800;
+  color: var(--navy-deep);
+  letter-spacing: -0.01em;
+  word-break: keep-all;
+}
+.req-card--featured .req-card-value--inline {
+  color: var(--gold-light);
+}
 
 /* ---------- 10. KEY BENEFITS — 좌우 7:3 (리스트 + 신뢰 패널) ---------- */
 .benefits .section-header { margin-bottom: 56px; }
@@ -1051,7 +1103,7 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
   word-break: keep-all;
 }
 .benefit-desc {
-  font-size: 13px;
+  font-size: 15px;
   color: var(--text-gray);
   line-height: 1.7;
   word-break: keep-all;
@@ -1134,13 +1186,13 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
   box-shadow: 0 8px 22px rgba(15,29,61,0.10);
 }
 .trust-tile img {
-  height: 60px;
+  height: 64px;
   width: auto;
   max-width: 100%;
   object-fit: contain;
 }
 .trust-tile span {
-  font-size: 12px;
+  font-size: 15px;
   font-weight: 700;
   color: var(--navy-deep);
   line-height: 1.4;
@@ -1190,15 +1242,15 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
 }
 .case-tag {
   display: inline-block;
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--gold);
   margin-bottom: 10px;
 }
-.case-title { font-size: 18px; font-weight: 700; color: var(--white); word-break: keep-all; }
-.case-desc { font-size: 13px; color: rgba(255,255,255,0.65); margin-top: 6px; word-break: keep-all; }
+.case-title { font-size: 22px; font-weight: 700; color: var(--white); word-break: keep-all; }
+.case-desc { font-size: 15px; color: rgba(255,255,255,0.65); margin-top: 6px; word-break: keep-all; }
 
 /* ---------- 12. PROCESS — 앰비언트 오브 ---------- */
 .process {
@@ -1233,7 +1285,7 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
 }
 .process-steps {
   display: grid;
-  grid-template-columns: repeat(7, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   gap: 14px;
   margin-top: 72px;
   padding-bottom: 16px;
@@ -1280,12 +1332,10 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
   animation: stepGaugeFill 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 .step.is-played:nth-child(1)::after { animation-delay: 0.00s; }
-.step.is-played:nth-child(2)::after { animation-delay: 0.15s; }
-.step.is-played:nth-child(3)::after { animation-delay: 0.30s; }
-.step.is-played:nth-child(4)::after { animation-delay: 0.45s; }
-.step.is-played:nth-child(5)::after { animation-delay: 0.60s; }
-.step.is-played:nth-child(6)::after { animation-delay: 0.75s; }
-.step.is-played:nth-child(7)::after { animation-delay: 0.90s; }
+.step.is-played:nth-child(2)::after { animation-delay: 0.18s; }
+.step.is-played:nth-child(3)::after { animation-delay: 0.36s; }
+.step.is-played:nth-child(4)::after { animation-delay: 0.54s; }
+.step.is-played:nth-child(5)::after { animation-delay: 0.72s; }
 @keyframes stepGaugeFill {
   0%   { width: 0; }
   100% { width: 100%; }
@@ -1392,7 +1442,7 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
   gap: 16px;
   padding: 22px 24px;
   cursor: pointer;
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 600;
   color: var(--text-dark);
   user-select: none;
@@ -1426,10 +1476,10 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
   transition: max-height 0.4s var(--ease-spring);
 }
 .faq-a-inner {
-  padding: 0 24px 22px;
-  font-size: 14px;
+  padding: 16px 24px 24px;
+  font-size: 16px;
   color: var(--text-mid);
-  line-height: 1.8;
+  line-height: 1.85;
   word-break: keep-all;
   background: var(--white);
 }
@@ -1489,6 +1539,7 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
 .field { display: flex; flex-direction: column; gap: 6px; }
 .field label { font-size: 13px; font-weight: 600; color: var(--text-mid); }
 .field label .required { color: var(--gold-dark); margin-left: 3px; }
+.field-hint { font-size: 11px; color: var(--text-light); font-weight: 400; margin-left: 4px; }
 .field input,
 .field select,
 .field textarea {
@@ -1618,7 +1669,7 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
 @media (max-width: 1024px) {
   .benefits-layout { grid-template-columns: 1fr; gap: 24px; }
   .benefits-trust { position: static; }
-  .process-steps { grid-template-columns: repeat(7, 1fr); gap: 8px; }
+  .process-steps { grid-template-columns: repeat(5, 1fr); gap: 8px; }
   .step { padding: 22px 8px 16px; }
   .step:not(:last-child)::before { right: -6px; }
 
@@ -1656,7 +1707,7 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
   .navbar-links, .navbar-cta { display: none; }
   .hamburger { display: flex; }
 
-  .hero { align-items: flex-start; }
+  .hero { align-items: flex-start; min-height: 100dvh; }
   /* 모바일: 와이드 배경 이미지 숨김 — 그라디언트 메시 + 오버레이로 통일 */
   .hero-video,
   .hero-bg-img { display: none; }
@@ -1686,6 +1737,7 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
   .hero-title { font-size: clamp(34px, 9vw, 52px); margin-bottom: 22px; }
   .hero-title-line:nth-child(2) { font-size: clamp(40px, 11vw, 60px); }
   .hero-sub { font-size: clamp(15px, 3.6vw, 18px); margin-bottom: 32px; }
+  .hero-partner-line { font-size: 12px; margin-bottom: 18px; }
   .hero-cta { flex-direction: column; align-items: center; gap: 12px; }
   .hero-cta .btn { width: 100%; max-width: 320px; }
   .btn-large { padding: 16px 32px; font-size: 16px; }
@@ -1695,12 +1747,15 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
 
   .pain-grid { grid-template-columns: 1fr; gap: 48px; }
   .pain-image-wrap { order: -1; }
+  .pain-problem-item p { font-size: 15px; }
   .requirements { padding: 32px 22px; margin-top: 56px; }
-  .requirements-list {
+  .requirements-list,
+  .requirements-list--row {
     grid-template-columns: 1fr;
     gap: 12px;
   }
   .req-card { padding: 22px 20px; }
+  .req-card--horizontal { flex-direction: row; padding: 20px 18px; gap: 16px; }
   .req-card-icon { width: 48px; height: 48px; }
   .req-card-icon svg { width: 26px; height: 26px; }
 
