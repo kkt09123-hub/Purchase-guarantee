@@ -1633,9 +1633,25 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
   :root { --section-py: 72px; }
 
   .navbar {
-    top: 12px;
-    width: calc(100% - 32px);
-    padding: 10px 20px;
+    top: 0;
+    left: 0;
+    right: 0;
+    transform: none;
+    width: 100%;
+    max-width: 100%;
+    border-radius: 0;
+    padding: 14px 20px;
+    background: rgba(11, 31, 74, 0.88);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: none;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    box-shadow: 0 2px 16px rgba(11,31,74,0.25);
+  }
+  .navbar.scrolled {
+    top: 0;
+    background: rgba(11, 31, 74, 0.96);
+    border-bottom-color: rgba(196,169,106,0.15);
   }
   .navbar-links, .navbar-cta { display: none; }
   .hamburger { display: flex; }
@@ -1739,7 +1755,7 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
 
 @media (max-width: 480px) {
   :root { --section-py: 56px; }
-  .navbar { top: 10px; width: calc(100% - 24px); }
+  .navbar { padding: 12px 16px; }
   .benefits-trust-logos { grid-template-columns: 1fr 1fr; }
   .section-title { font-size: 26px; }
   .benefit-headline { font-size: 28px; }
