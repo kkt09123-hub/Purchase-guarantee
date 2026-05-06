@@ -1641,37 +1641,37 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
     max-width: 100%;
     border-radius: 0;
     padding: 14px 20px;
-    background: rgba(11, 31, 74, 0.88);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    background: rgba(7, 22, 56, 0.78);
+    backdrop-filter: blur(22px) saturate(140%);
+    -webkit-backdrop-filter: blur(22px) saturate(140%);
     border: none;
-    border-bottom: 1px solid rgba(255,255,255,0.08);
-    box-shadow: 0 2px 16px rgba(11,31,74,0.25);
+    border-bottom: 1px solid rgba(196, 169, 106, 0.28);
+    box-shadow: 0 4px 24px rgba(0,0,0,0.35);
   }
   .navbar.scrolled {
     top: 0;
-    background: rgba(11, 31, 74, 0.96);
-    border-bottom-color: rgba(196,169,106,0.15);
+    background: rgba(7, 22, 56, 0.94);
+    border-bottom-color: rgba(196, 169, 106, 0.45);
   }
   .navbar-links, .navbar-cta { display: none; }
   .hamburger { display: flex; }
 
   .hero { align-items: flex-start; }
-  /* 모바일: 좌/우 분리감 제거 — 세로 그라디언트로 통일 */
+  /* 모바일: 와이드 배경 이미지 숨김 — 그라디언트 메시 + 오버레이로 통일 */
   .hero-video,
-  .hero-bg-img { object-position: center center; }
+  .hero-bg-img { display: none; }
   .hero-overlay {
     background: linear-gradient(
       180deg,
-      rgba(11, 31, 74, 0.45) 0%,
-      rgba(11, 31, 74, 0.58) 55%,
-      rgba(11, 31, 74, 0.78) 100%
+      rgba(11, 31, 74, 0.55) 0%,
+      rgba(11, 31, 74, 0.72) 55%,
+      rgba(11, 31, 74, 0.88) 100%
     );
   }
   .hero-media::before {
     background:
-      radial-gradient(ellipse 90% 40% at 50% 25%, rgba(196,169,106,0.09) 0%, transparent 60%),
-      radial-gradient(ellipse 90% 60% at 50% 95%, rgba(26,63,143,0.35) 0%, transparent 60%);
+      radial-gradient(ellipse 100% 45% at 50% 18%, rgba(196,169,106,0.16) 0%, transparent 60%),
+      radial-gradient(ellipse 110% 55% at 50% 92%, rgba(26,63,143,0.55) 0%, transparent 60%);
   }
   .hero-content { padding: 110px 20px 80px; }
   .hero-eyebrow {
