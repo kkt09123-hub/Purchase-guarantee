@@ -116,7 +116,7 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
   word-break: keep-all;
 }
 .section-title--lg {
-  font-size: clamp(40px, 6vw, 64px);
+  font-size: clamp(28px, 4vw, 42px);
 }
 .section-sub {
   font-size: 17px;
@@ -354,10 +354,11 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
 /* ---------- 7. HERO ---------- */
 .hero {
   position: relative;
-  min-height: 90dvh;
+  min-height: 100dvh;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   overflow: hidden;
 }
 .hero-media {
@@ -408,9 +409,15 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
   position: relative;
   z-index: 3;
   text-align: center;
-  padding: 128px 24px 80px;
+  padding: 128px 24px 60px;
   max-width: 1080px;
   margin: 0 auto;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
 }
 .hero-eyebrow {
   display: inline-flex;
@@ -720,46 +727,6 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
   background: rgba(196,169,106,0.10);
 }
 
-/* hero-partners — 히어로 내 파트너 로고 행 */
-.hero-partners {
-  margin-top: 32px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 12px;
-  opacity: 0;
-  animation: heroPartnersIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) 6.95s forwards;
-}
-@keyframes heroPartnersIn {
-  to { opacity: 1; }
-}
-.hero-partners-label {
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: rgba(247,232,200,0.55);
-}
-.hero-partners-logos {
-  display: flex;
-  align-items: center;
-  gap: 24px;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-.hero-partners-logos img {
-  height: 30px;
-  width: auto;
-  object-fit: contain;
-  filter: grayscale(1) brightness(3);
-  opacity: 0.65;
-  transition: filter 0.3s ease, opacity 0.3s ease;
-}
-.hero-partners-logos img:hover {
-  filter: grayscale(0) brightness(1);
-  opacity: 1;
-}
-
 /* scroll-hint 진입 */
 .hero-scroll-hint {
   opacity: 0;
@@ -774,6 +741,34 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
   padding: 32px 0;
   border-bottom: 1px solid var(--border);
   overflow: hidden;
+}
+/* hero 내부 trust — 다크 배경 위 마퀴 */
+.trust--hero {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  border-bottom: none;
+  border-top: 1px solid rgba(196,169,106,0.18);
+  background: rgba(11,31,74,0.45);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 24px 0;
+  flex-shrink: 0;
+}
+.trust--hero .trust-label {
+  color: rgba(247,232,200,0.55);
+}
+.trust--hero .trust-logo {
+  opacity: 0.75;
+}
+.trust--hero .trust-logo img {
+  filter: grayscale(1) brightness(3);
+  opacity: 0.7;
+  transition: filter 0.3s ease, opacity 0.3s ease;
+}
+.trust--hero .trust-logo:hover img {
+  filter: grayscale(0) brightness(1.1);
+  opacity: 1;
 }
 .trust-label {
   text-align: center;
@@ -1061,6 +1056,12 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
 }
 
 /* ---------- 10. KEY BENEFITS — 좌우 7:3 (리스트 + 신뢰 패널) ---------- */
+/* 핵심 혜택 골드 라벨만 2배 */
+#benefits .section-label span {
+  font-size: 22px;
+  letter-spacing: 0.15em;
+}
+
 .benefits .section-header { margin-bottom: 56px; }
 .benefits-layout {
   display: grid;
@@ -1122,7 +1123,7 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
   opacity: 0.7;
 }
 .benefit-headline {
-  font-size: clamp(36px, 4.5vw, 44px);
+  font-size: clamp(28px, 3.6vw, 36px);
   font-weight: 800;
   letter-spacing: -0.03em;
   line-height: 1.1;
@@ -1136,14 +1137,14 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
   /* gradient 동일 */
 }
 .benefit-label {
-  font-size: 19px;
+  font-size: 15px;
   font-weight: 700;
   color: var(--navy-deep);
   margin-bottom: 6px;
   word-break: keep-all;
 }
 .benefit-desc {
-  font-size: 17px;
+  font-size: 15px;
   color: var(--text-gray);
   line-height: 1.7;
   word-break: keep-all;
@@ -1757,7 +1758,7 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
   .navbar-links, .navbar-cta { display: none; }
   .hamburger { display: flex; }
 
-  .hero { align-items: flex-start; min-height: 100dvh; }
+  .hero { align-items: stretch; min-height: 100dvh; }
   /* 모바일: 와이드 배경 이미지 숨김 — 그라디언트 메시 + 오버레이로 통일 */
   .hero-video,
   .hero-bg-img { display: none; }
@@ -1774,7 +1775,7 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
       radial-gradient(ellipse 100% 45% at 50% 18%, rgba(196,169,106,0.16) 0%, transparent 60%),
       radial-gradient(ellipse 110% 55% at 50% 92%, rgba(26,63,143,0.55) 0%, transparent 60%);
   }
-  .hero-content { padding: 110px 20px 80px; }
+  .hero-content { padding: 110px 20px 60px; align-items: center; }
   .hero-eyebrow {
     gap: 10px;
     margin-bottom: 22px;
@@ -1816,15 +1817,15 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
   .benefit-item { padding: 22px 22px 22px 32px; }
   .benefit-item .benefit-icon { width: 32px; height: 32px; top: 18px; right: 18px; }
   .benefit-item .benefit-icon img { width: 18px; height: 18px; }
-  .benefit-headline { font-size: clamp(28px, 8vw, 36px); }
-  .benefit-label { font-size: 16px; }
-  .benefit-desc { font-size: 15px; }
-  .section-title--lg { font-size: clamp(32px, 7vw, 48px); }
+  .benefit-headline { font-size: clamp(24px, 7vw, 32px); }
+  .benefit-label { font-size: 14px; }
+  .benefit-desc { font-size: 14px; }
+  .section-title--lg { font-size: clamp(24px, 5vw, 36px); }
   .trust-logo img { height: 64px; }
   .trust-logo--xl img { height: 96px; }
+  .trust--hero .trust-logo img { height: 48px; }
+  .trust--hero .trust-logo--xl img { height: 72px; }
   .case-tag { font-size: 18px; }
-  .hero-partners-logos img { height: 24px; }
-  .hero-partners { display: none; }
 
   .cases-grid { grid-template-columns: 1fr; }
 
@@ -1889,10 +1890,10 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
   .navbar { padding: 12px 16px; }
   .benefits-trust-logos { grid-template-columns: 1fr 1fr; }
   .section-title { font-size: 26px; }
-  .section-title--lg { font-size: 28px; }
-  .benefit-headline { font-size: 30px; }
-  .benefit-label { font-size: 15px; }
-  .benefit-desc { font-size: 14px; }
+  .section-title--lg { font-size: 26px; }
+  .benefit-headline { font-size: 26px; }
+  .benefit-label { font-size: 13px; }
+  .benefit-desc { font-size: 13px; }
   .case-tag { font-size: 16px; }
 
   .hero-eyebrow::before,
