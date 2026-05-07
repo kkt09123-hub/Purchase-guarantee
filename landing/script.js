@@ -324,6 +324,37 @@ if (phoneInput) {
   }, { passive: true });
 })();
 
+/* ---------- J: Sticky CTA — 히어로/폼 영역 외에서만 표시 ---------- */
+(function stickyCTAVisibility() {
+  const stickyCta = document.getElementById('stickyCta');
+  const heroEl = document.getElementById('hero');
+  const formEl = document.getElementById('form');
+
+  if (!stickyCta || !heroEl || !formEl) return;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.target === heroEl || entry.target === formEl) {
+        if (entry.isIntersecting) {
+          stickyCta.classList.add('is-hidden');
+        } else {
+          // 두 영역 모두 화면 밖인지 재확인 후 표시
+          const heroRect = heroEl.getBoundingClientRect();
+          const formRect = formEl.getBoundingClientRect();
+          const heroVisible = heroRect.bottom > window.innerHeight * 0.2 && heroRect.top < window.innerHeight * 0.8;
+          const formVisible = formRect.bottom > window.innerHeight * 0.2 && formRect.top < window.innerHeight * 0.8;
+          if (!heroVisible && !formVisible) {
+            stickyCta.classList.remove('is-hidden');
+          }
+        }
+      }
+    });
+  }, { threshold: 0.2 });
+
+  observer.observe(heroEl);
+  observer.observe(formEl);
+})();
+
 /* ---------- E: Pain Point 인용구 stagger + border growUp ---------- */
 (function painPointReveal() {
   const items = document.querySelectorAll('.pain-problem-item');
