@@ -116,7 +116,7 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
   word-break: keep-all;
 }
 .section-title--lg {
-  font-size: clamp(32px, 4.5vw, 50px);
+  font-size: clamp(40px, 6vw, 64px);
 }
 .section-sub {
   font-size: 17px;
@@ -243,7 +243,7 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
 }
 .navbar.scrolled .navbar-logo { color: var(--navy-deep); }
 .navbar-logo img {
-  height: 36px;
+  height: 42px;
   width: auto;
   transition: filter 0.3s var(--ease-spring);
 }
@@ -720,6 +720,46 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
   background: rgba(196,169,106,0.10);
 }
 
+/* hero-partners — 히어로 내 파트너 로고 행 */
+.hero-partners {
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  opacity: 0;
+  animation: heroPartnersIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) 6.95s forwards;
+}
+@keyframes heroPartnersIn {
+  to { opacity: 1; }
+}
+.hero-partners-label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(247,232,200,0.55);
+}
+.hero-partners-logos {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.hero-partners-logos img {
+  height: 30px;
+  width: auto;
+  object-fit: contain;
+  filter: grayscale(1) brightness(3);
+  opacity: 0.65;
+  transition: filter 0.3s ease, opacity 0.3s ease;
+}
+.hero-partners-logos img:hover {
+  filter: grayscale(0) brightness(1);
+  opacity: 1;
+}
+
 /* scroll-hint 진입 */
 .hero-scroll-hint {
   opacity: 0;
@@ -747,7 +787,7 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
 .trust-track-wrap { overflow: hidden; }
 .trust-track {
   display: flex;
-  gap: 80px;
+  gap: 96px;
   width: max-content;
   animation: marquee 16s linear infinite;
 }
@@ -760,8 +800,8 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
   transition: opacity 0.3s var(--ease-spring), transform 0.3s var(--ease-spring);
 }
 .trust-logo:hover { opacity: 1; transform: scale(1.18); }
-.trust-logo img { height: 64px; width: auto; object-fit: contain; }
-.trust-logo--xl img { height: 128px; }
+.trust-logo img { height: 96px; width: auto; object-fit: contain; }
+.trust-logo--xl img { height: 192px; }
 @keyframes marquee {
   0%   { transform: translateX(0); }
   100% { transform: translateX(-50%); }
@@ -784,7 +824,7 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
   display: flex;
   align-items: flex-start;
   gap: 14px;
-  padding: 16px 20px;
+  padding: 20px 24px;
   border-left: 3px solid var(--gold);
   background: var(--cream);
   border-radius: 0 var(--radius-inner) var(--radius-inner) 0;
@@ -799,9 +839,9 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
   margin-top: -2px;
 }
 .pain-problem-item p {
-  font-size: 16px;
+  font-size: 18px;
   color: var(--text-mid);
-  line-height: 1.7;
+  line-height: 1.75;
   word-break: keep-all;
 }
 .pain-image-wrap {
@@ -1082,7 +1122,7 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
   opacity: 0.7;
 }
 .benefit-headline {
-  font-size: clamp(28px, 3.6vw, 36px);
+  font-size: clamp(36px, 4.5vw, 44px);
   font-weight: 800;
   letter-spacing: -0.03em;
   line-height: 1.1;
@@ -1096,14 +1136,14 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
   /* gradient 동일 */
 }
 .benefit-label {
-  font-size: 14px;
+  font-size: 19px;
   font-weight: 700;
   color: var(--navy-deep);
   margin-bottom: 6px;
   word-break: keep-all;
 }
 .benefit-desc {
-  font-size: 15px;
+  font-size: 17px;
   color: var(--text-gray);
   line-height: 1.7;
   word-break: keep-all;
@@ -1242,9 +1282,9 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
 }
 .case-tag {
   display: inline-block;
-  font-size: 11px;
+  font-size: 21px;
   font-weight: 700;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--gold);
   margin-bottom: 10px;
@@ -1537,9 +1577,19 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
 .form-fields { display: flex; flex-direction: column; gap: 16px; }
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 .field { display: flex; flex-direction: column; gap: 6px; }
-.field label { font-size: 13px; font-weight: 600; color: var(--text-mid); }
-.field label .required { color: var(--gold-dark); margin-left: 3px; }
-.field-hint { font-size: 11px; color: var(--text-light); font-weight: 400; margin-left: 4px; }
+.field label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-mid);
+  min-height: 38px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+.field label .required { color: var(--gold-dark); margin-left: 1px; }
+.field-hint { font-size: 11px; color: var(--text-light); font-weight: 400; }
+.field-hint--placeholder { visibility: hidden; pointer-events: none; }
 .field input,
 .field select,
 .field textarea {
@@ -1747,7 +1797,8 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
 
   .pain-grid { grid-template-columns: 1fr; gap: 48px; }
   .pain-image-wrap { order: -1; }
-  .pain-problem-item p { font-size: 15px; }
+  .pain-problem-item { padding: 16px 18px; }
+  .pain-problem-item p { font-size: 16px; }
   .requirements { padding: 32px 22px; margin-top: 56px; }
   .requirements-list,
   .requirements-list--row {
@@ -1765,6 +1816,15 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
   .benefit-item { padding: 22px 22px 22px 32px; }
   .benefit-item .benefit-icon { width: 32px; height: 32px; top: 18px; right: 18px; }
   .benefit-item .benefit-icon img { width: 18px; height: 18px; }
+  .benefit-headline { font-size: clamp(28px, 8vw, 36px); }
+  .benefit-label { font-size: 16px; }
+  .benefit-desc { font-size: 15px; }
+  .section-title--lg { font-size: clamp(32px, 7vw, 48px); }
+  .trust-logo img { height: 64px; }
+  .trust-logo--xl img { height: 96px; }
+  .case-tag { font-size: 18px; }
+  .hero-partners-logos img { height: 24px; }
+  .hero-partners { display: none; }
 
   .cases-grid { grid-template-columns: 1fr; }
 
@@ -1829,7 +1889,11 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
   .navbar { padding: 12px 16px; }
   .benefits-trust-logos { grid-template-columns: 1fr 1fr; }
   .section-title { font-size: 26px; }
-  .benefit-headline { font-size: 28px; }
+  .section-title--lg { font-size: 28px; }
+  .benefit-headline { font-size: 30px; }
+  .benefit-label { font-size: 15px; }
+  .benefit-desc { font-size: 14px; }
+  .case-tag { font-size: 16px; }
 
   .hero-eyebrow::before,
   .hero-eyebrow::after { display: none; }
