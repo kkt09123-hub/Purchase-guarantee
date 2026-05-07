@@ -1751,22 +1751,29 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
   /* ── K. 섹션 padding ── */
   :root { --section-py: 56px; }
 
-  /* ── B. 네비 햄버거 ── */
+  /* ── B. 네비 — PC와 동일한 플로팅 글래스 필 (mobile) ── */
   .navbar {
-    top: 0;
-    left: 0;
-    right: 0;
+    top: 12px;
+    left: 12px;
+    right: 12px;
     transform: none;
-    width: 100%;
+    width: auto;
     max-width: 100%;
-    border-radius: 0;
-    padding: 12px 16px;
-    background: rgba(7, 22, 56, 0.78);
-    backdrop-filter: blur(22px) saturate(140%);
-    -webkit-backdrop-filter: blur(22px) saturate(140%);
-    border: none;
-    border-bottom: 1px solid rgba(196, 169, 106, 0.28);
-    box-shadow: 0 4px 24px rgba(0,0,0,0.35);
+    border-radius: 100px;
+    padding: 8px 14px 8px 18px;
+    background: rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(20px) saturate(140%);
+    -webkit-backdrop-filter: blur(20px) saturate(140%);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+    box-shadow: 0 6px 24px rgba(11,31,74,0.18);
+  }
+  .navbar.scrolled {
+    top: 10px;
+    background: rgba(255, 255, 255, 0.92);
+    border-color: rgba(196, 169, 106, 0.28);
+    border-bottom-color: rgba(196, 169, 106, 0.28);
+    box-shadow: 0 8px 28px rgba(11,31,74,0.12), 0 1px 0 rgba(255,255,255,0.6) inset;
   }
   .navbar .container { padding: 0; }
   .navbar-inner {
@@ -1774,24 +1781,29 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    gap: 0;
-  }
-  .navbar.scrolled {
-    top: 0;
-    background: rgba(7, 22, 56, 0.94);
-    border-bottom-color: rgba(196, 169, 106, 0.45);
+    gap: 12px;
   }
   .navbar-links, .navbar-cta { display: none; }
   .hamburger {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     gap: 5px;
-    padding: 4px;
+    padding: 8px 6px;
     flex-shrink: 0;
+    width: 36px;
+    height: 36px;
   }
-  .hamburger span { background: var(--gold); }
-  .navbar.scrolled .hamburger span { background: var(--gold); }
-  .navbar-logo--icon-only img { height: 44px; }
+  .hamburger span {
+    width: 22px;
+    background: var(--white);
+    box-shadow: 0 1px 2px rgba(11,31,74,0.18);
+  }
+  .navbar.scrolled .hamburger span {
+    background: var(--navy-deep);
+    box-shadow: none;
+  }
+  .navbar-logo--icon-only img { height: 38px; }
 
   /* ── C. 히어로 컴팩트 ── */
   .hero { align-items: stretch; min-height: 100dvh; }
@@ -1881,11 +1893,20 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
   /* Trust 마퀴 */
   .trust-logo img { height: 64px; }
   .trust-logo--xl img { height: 96px; }
-  .trust--hero { padding: 8px 0; }
-  .trust--hero .trust-label { margin-bottom: 6px; }
-  .trust--hero .trust-logo img { height: 40px; }
-  .trust--hero .trust-logo--xl img { height: 56px; }
-  .trust--hero .trust-track { gap: 40px; }
+  /* 히어로 스크롤 힌트 — 모바일에선 trust 라벨과 충돌, 숨김 */
+  .hero-scroll-hint { display: none; }
+
+  .trust--hero { padding: 10px 0; }
+  .trust--hero .trust-label { margin-bottom: 6px; font-size: 10px; }
+  /* 모바일: 그레이스케일 제거, 원본 컬러 유지 + 사이즈 축소 */
+  .trust--hero .trust-logo { opacity: 1; }
+  .trust--hero .trust-logo img {
+    height: 32px;
+    filter: none;
+    opacity: 1;
+  }
+  .trust--hero .trust-logo--xl img { height: 44px; }
+  .trust--hero .trust-track { gap: 28px; }
 
   /* ── G. 대상 업종 카드 비율 ── */
   .cases-grid { grid-template-columns: 1fr; gap: 14px; }
