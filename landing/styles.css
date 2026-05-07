@@ -1745,86 +1745,92 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
 }
 
 @media (max-width: 768px) {
-  /* ── A. 가로 오버플로우 차단 ── */
+  /* ── A. 가로 오버플로우 차단 — 근본 원인 수정 ── */
   html, body { overflow-x: hidden; max-width: 100vw; }
+
+  /* overflow 유발 요소들 — 폭 초과 방지 */
+  .trust-track-wrap { overflow: hidden; max-width: 100vw; }
+  .trust-track { max-width: none; } /* width: max-content 유지, 부모가 clamp */
+  .hero-chips { max-width: 100%; box-sizing: border-box; }
+  .hero-partner-line { max-width: 100%; overflow: hidden; white-space: normal; word-break: keep-all; }
+  .hero-content { max-width: 100vw; box-sizing: border-box; overflow: hidden; }
+  .container { max-width: 100vw; box-sizing: border-box; }
+  section, .section { max-width: 100vw; overflow-x: hidden; box-sizing: border-box; }
 
   /* ── K. 섹션 padding ── */
   :root { --section-py: 56px; }
 
-  /* ── B. 네비 — 플로팅 원형 버튼 2개 (배경바 없이) ── */
+  /* ── B. 네비 — 단순 흰색 고정 바 (kinfa 스타일) ── */
   .navbar {
     position: fixed;
-    top: 12px;
+    top: 0;
     left: 0;
     right: 0;
     width: 100%;
-    max-width: 100%;
-    transform: none;
-    background: transparent !important;
+    max-width: 100vw;
+    transform: translateY(0);
+    background: rgba(255, 255, 255, 0.97) !important;
     border: none !important;
-    box-shadow: none !important;
-    backdrop-filter: none !important;
-    -webkit-backdrop-filter: none !important;
+    box-shadow: 0 1px 8px rgba(11,31,74,0.10) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
     border-radius: 0;
-    padding: 0 12px;
-    pointer-events: none;
+    padding: 0 16px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    transition: transform 0.3s ease !important;
+    pointer-events: auto;
+    box-sizing: border-box;
   }
   .navbar.scrolled {
-    top: 12px;
-    background: transparent !important;
-    border: none !important;
-    box-shadow: none !important;
-    backdrop-filter: none !important;
-    -webkit-backdrop-filter: none !important;
+    top: 0;
+    background: rgba(255, 255, 255, 0.97) !important;
+    box-shadow: 0 2px 12px rgba(11,31,74,0.12) !important;
+  }
+  .navbar.nav-hidden {
+    transform: translateY(-100%) !important;
   }
   .navbar .container {
     max-width: 100%;
+    width: 100%;
     padding: 0;
-    pointer-events: none;
   }
   .navbar-inner {
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    gap: 8px;
-    pointer-events: none;
+    gap: 0;
   }
   .navbar-links, .navbar-cta { display: none; }
 
-  /* 로고 — 좌측 상단 원형 플로팅 버튼 */
+  /* 로고 */
   .navbar-logo {
-    pointer-events: auto;
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(20px) saturate(140%);
-    -webkit-backdrop-filter: blur(20px) saturate(140%);
-    box-shadow: 0 6px 20px rgba(11, 31, 74, 0.18), 0 1px 0 rgba(255,255,255,0.8) inset;
     display: flex;
     align-items: center;
-    justify-content: center;
-    overflow: hidden;
+    background: none;
+    border-radius: 0;
+    box-shadow: none;
+    border: none;
     padding: 0;
+    width: auto;
+    height: auto;
+    overflow: visible;
     flex-shrink: 0;
-    border: 1px solid rgba(255,255,255,0.6);
-    transition: all 0.3s var(--ease-spring);
-  }
-  .navbar.scrolled .navbar-logo {
-    box-shadow: 0 6px 22px rgba(11, 31, 74, 0.22);
-    border-color: rgba(196,169,106,0.35);
   }
   .navbar-logo--icon-only img {
-    height: 28px;
+    height: 32px;
     width: auto;
-    max-width: 36px;
     object-fit: contain;
   }
+  .navbar-logo img {
+    height: 32px;
+    width: auto;
+  }
 
-  /* 햄버거 — 우측 상단 원형 플로팅 버튼 */
+  /* 햄버거 */
   .hamburger {
-    pointer-events: auto;
     display: flex !important;
     flex-direction: column;
     align-items: center;
@@ -1832,27 +1838,21 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
     gap: 5px;
     width: 44px;
     height: 44px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(20px) saturate(140%);
-    -webkit-backdrop-filter: blur(20px) saturate(140%);
-    box-shadow: 0 6px 20px rgba(11, 31, 74, 0.18), 0 1px 0 rgba(255,255,255,0.8) inset;
-    border: 1px solid rgba(255,255,255,0.6);
+    background: none;
+    border-radius: 0;
+    box-shadow: none;
+    border: none;
     padding: 0;
     flex-shrink: 0;
-    transition: all 0.3s var(--ease-spring);
-  }
-  .navbar.scrolled .hamburger {
-    box-shadow: 0 6px 22px rgba(11, 31, 74, 0.22);
-    border-color: rgba(196,169,106,0.35);
+    pointer-events: auto;
+    cursor: pointer;
   }
   .hamburger:active { transform: scale(0.94); }
   .hamburger span {
-    width: 20px;
+    width: 22px;
     height: 2px;
     background: var(--navy-deep);
     border-radius: 2px;
-    box-shadow: none;
     display: block;
   }
   .navbar.scrolled .hamburger span { background: var(--navy-deep); }
@@ -2052,24 +2052,24 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
   .field select,
   .field textarea { font-size: 13px; padding: 10px 12px; }
 
-  /* ── J. Sticky CTA ── */
+  /* ── J. Sticky CTA — 우측 하단 floating 버튼 ── */
   .sticky-cta {
     position: fixed;
-    bottom: 16px;
-    left: 16px;
-    right: 16px;
-    z-index: 998;
+    bottom: 20px;
+    right: 20px;
+    left: auto;
+    z-index: 50;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
-    padding: 14px 20px;
+    gap: 6px;
+    padding: 14px 22px;
     background: var(--gold);
     color: var(--navy-deep);
     font-weight: 800;
-    font-size: 16px;
+    font-size: 15px;
     border-radius: 100px;
-    box-shadow: 0 8px 24px rgba(11,31,74,0.32), 0 2px 6px rgba(196,169,106,0.4);
+    box-shadow: 0 8px 24px rgba(11,31,74,0.28), 0 2px 8px rgba(196,169,106,0.45);
     text-decoration: none;
     transition: opacity 0.3s var(--ease-spring), transform 0.3s var(--ease-spring);
     letter-spacing: 0.01em;
@@ -2095,7 +2095,7 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
 
 @media (max-width: 480px) {
   :root { --section-py: 44px; }
-  .navbar { padding: 10px 14px; }
+  .navbar { padding: 0 14px; height: 56px; }
   .benefits-trust-logos { grid-template-columns: 1fr 1fr; }
   .section-title { font-size: 24px; }
   .section-title--lg { font-size: 24px; }

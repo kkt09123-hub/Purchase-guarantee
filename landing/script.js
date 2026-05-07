@@ -2,10 +2,31 @@
    구매보증 랜딩페이지 — script.js
    ============================================================ */
 
-/* ---------- T16: Navbar 스크롤 효과 ---------- */
+/* ---------- T16: Navbar 스크롤 효과 + 모바일 hide-on-scroll ---------- */
 const navbar = document.getElementById('navbar');
+let lastScrollY = window.scrollY;
+
 window.addEventListener('scroll', () => {
-  navbar.classList.toggle('scrolled', window.scrollY > 40);
+  const currentY = window.scrollY;
+
+  // scrolled 클래스 (PC 플로팅 스타일용)
+  navbar.classList.toggle('scrolled', currentY > 40);
+
+  // 모바일 hide/show (768px 이하에서만)
+  if (window.innerWidth <= 768) {
+    if (currentY < 50) {
+      // 최상단 — 항상 표시
+      navbar.classList.remove('nav-hidden');
+    } else if (currentY > lastScrollY) {
+      // 아래로 스크롤 → 숨김
+      navbar.classList.add('nav-hidden');
+    } else {
+      // 위로 스크롤 → 표시
+      navbar.classList.remove('nav-hidden');
+    }
+  }
+
+  lastScrollY = currentY;
 }, { passive: true });
 
 /* ---------- 모바일 메뉴 ---------- */
