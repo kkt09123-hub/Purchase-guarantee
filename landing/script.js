@@ -173,7 +173,7 @@ document.querySelectorAll('.faq-q').forEach(q => {
 });
 
 /* ---------- T20: 폼 제출 (GAS 연동) ---------- */
-const GAS_URL = 'https://script.google.com/macros/s/AKfycbzBsojxUGRammTsolv-rp91dJ70vUhTraZGHdtGDzPwyAWfuzG-Y_ctd4E9ZfUFWHg/exec';
+const GAS_URL = 'https://script.google.com/macros/s/AKfycbyuQneriW22p0JvPbaD72PwsStBM-MQAs0AYV9Gw1OOJCOe7OhYRCv5yuIlrOaxm_4/exec';
 
 const form = document.getElementById('contactForm');
 const formResult = document.getElementById('formResult');
