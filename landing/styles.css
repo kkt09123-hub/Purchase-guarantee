@@ -1751,59 +1751,111 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
   /* ── K. 섹션 padding ── */
   :root { --section-py: 56px; }
 
-  /* ── B. 네비 — PC와 동일한 플로팅 글래스 필 (mobile) ── */
+  /* ── B. 네비 — 플로팅 원형 버튼 2개 (배경바 없이) ── */
   .navbar {
+    position: fixed;
     top: 12px;
-    left: 12px;
-    right: 12px;
-    transform: none;
-    width: auto;
+    left: 0;
+    right: 0;
+    width: 100%;
     max-width: 100%;
-    border-radius: 100px;
-    padding: 8px 14px 8px 18px;
-    background: rgba(255, 255, 255, 0.18);
-    backdrop-filter: blur(20px) saturate(140%);
-    -webkit-backdrop-filter: blur(20px) saturate(140%);
-    border: 1px solid rgba(255, 255, 255, 0.35);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.35);
-    box-shadow: 0 6px 24px rgba(11,31,74,0.18);
+    transform: none;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    border-radius: 0;
+    padding: 0 12px;
+    pointer-events: none;
   }
   .navbar.scrolled {
-    top: 10px;
-    background: rgba(255, 255, 255, 0.92);
-    border-color: rgba(196, 169, 106, 0.28);
-    border-bottom-color: rgba(196, 169, 106, 0.28);
-    box-shadow: 0 8px 28px rgba(11,31,74,0.12), 0 1px 0 rgba(255,255,255,0.6) inset;
+    top: 12px;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
   }
-  .navbar .container { padding: 0; }
+  .navbar .container {
+    max-width: 100%;
+    padding: 0;
+    pointer-events: none;
+  }
   .navbar-inner {
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    gap: 12px;
+    gap: 8px;
+    pointer-events: none;
   }
   .navbar-links, .navbar-cta { display: none; }
-  .hamburger {
+
+  /* 로고 — 좌측 상단 원형 플로팅 버튼 */
+  .navbar-logo {
+    pointer-events: auto;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px) saturate(140%);
+    -webkit-backdrop-filter: blur(20px) saturate(140%);
+    box-shadow: 0 6px 20px rgba(11, 31, 74, 0.18), 0 1px 0 rgba(255,255,255,0.8) inset;
     display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 0;
+    flex-shrink: 0;
+    border: 1px solid rgba(255,255,255,0.6);
+    transition: all 0.3s var(--ease-spring);
+  }
+  .navbar.scrolled .navbar-logo {
+    box-shadow: 0 6px 22px rgba(11, 31, 74, 0.22);
+    border-color: rgba(196,169,106,0.35);
+  }
+  .navbar-logo--icon-only img {
+    height: 28px;
+    width: auto;
+    max-width: 36px;
+    object-fit: contain;
+  }
+
+  /* 햄버거 — 우측 상단 원형 플로팅 버튼 */
+  .hamburger {
+    pointer-events: auto;
+    display: flex !important;
     flex-direction: column;
+    align-items: center;
     justify-content: center;
     gap: 5px;
-    padding: 8px 6px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px) saturate(140%);
+    -webkit-backdrop-filter: blur(20px) saturate(140%);
+    box-shadow: 0 6px 20px rgba(11, 31, 74, 0.18), 0 1px 0 rgba(255,255,255,0.8) inset;
+    border: 1px solid rgba(255,255,255,0.6);
+    padding: 0;
     flex-shrink: 0;
-    width: 36px;
-    height: 36px;
+    transition: all 0.3s var(--ease-spring);
   }
+  .navbar.scrolled .hamburger {
+    box-shadow: 0 6px 22px rgba(11, 31, 74, 0.22);
+    border-color: rgba(196,169,106,0.35);
+  }
+  .hamburger:active { transform: scale(0.94); }
   .hamburger span {
-    width: 22px;
-    background: var(--white);
-    box-shadow: 0 1px 2px rgba(11,31,74,0.18);
-  }
-  .navbar.scrolled .hamburger span {
+    width: 20px;
+    height: 2px;
     background: var(--navy-deep);
+    border-radius: 2px;
     box-shadow: none;
+    display: block;
   }
-  .navbar-logo--icon-only img { height: 38px; }
+  .navbar.scrolled .hamburger span { background: var(--navy-deep); }
 
   /* ── C. 히어로 컴팩트 ── */
   .hero { align-items: stretch; min-height: 100dvh; }
@@ -1908,9 +1960,41 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
   .trust--hero .trust-logo--xl img { height: 44px; }
   .trust--hero .trust-track { gap: 28px; }
 
-  /* ── G. 대상 업종 카드 비율 ── */
-  .cases-grid { grid-template-columns: 1fr; gap: 14px; }
-  .case-card { aspect-ratio: 3/2; }
+  /* ── G. 대상 업종 — 가로 스와이프 카드 (snap + peek) ── */
+  .cases-grid {
+    display: flex !important;
+    grid-template-columns: none;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    gap: 12px;
+    padding: 8px 16px 28px;
+    margin: 0 -24px;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    scroll-padding: 0 16px;
+  }
+  .cases-grid::-webkit-scrollbar { display: none; }
+  .case-card {
+    flex: 0 0 82%;
+    scroll-snap-align: center;
+    aspect-ratio: 4/3;
+    min-width: 0;
+  }
+  /* 스와이프 힌트 — 카드 컨테이너 우측에 살짝 보이는 그라디언트로 "더 있음" 신호 */
+  #cases > .container { position: relative; }
+  #cases > .container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 24px;
+    height: 100%;
+    pointer-events: none;
+    background: linear-gradient(to right, transparent, var(--white));
+    z-index: 2;
+    opacity: 0.6;
+  }
   .case-tag { font-size: 16px; }
 
   /* Process — 모바일은 세로 카드 + 좌측 세로 게이지바 */
