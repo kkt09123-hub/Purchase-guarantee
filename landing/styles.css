@@ -298,6 +298,9 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
 /* PC: 숨김 / 모바일: floating 버튼으로 표시 */
 .hamburger { display: none; }
 
+/* 모바일 전용 br — PC에선 숨김 */
+br.mobile-only { display: none; }
+
 /* 모바일 메뉴 — 풀스크린 블러 오버레이 */
 .mobile-menu {
   display: none;
@@ -2226,6 +2229,20 @@ body.menu-open .navbar { opacity: 0; pointer-events: none; }
   .footer-inner { grid-template-columns: 1fr; gap: 24px; padding-bottom: 32px; }
   .footer-info { font-size: 12px; }
   .footer-bottom { flex-direction: column; align-items: flex-start; }
+
+  /* ── 모바일 카피 다듬기 ── */
+  /* 1. 폼 상단 — 첫줄 삭제, "모든 정보는 상담 목적으로만" 만 표시 */
+  .form-sub-intro { display: none; }
+
+  /* 2. 대상 업종 — 서브카피 삭제 */
+  .cases-section-sub { display: none; }
+
+  /* 3. 핵심혜택 03 — "—" 구분자 삭제 + 줄바꿈 */
+  .benefit-label-sep { display: none; }
+  .benefit-label .nowrap { display: block; }
+
+  /* 4. Pain 서브 — "성장도" 다음 줄로 배치 */
+  br.mobile-only { display: inline; }
 }
 
 @media (max-width: 480px) {
