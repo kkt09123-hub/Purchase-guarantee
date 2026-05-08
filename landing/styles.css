@@ -1766,10 +1766,10 @@ body.menu-open .navbar { opacity: 0; pointer-events: none; }
     max-width: 100%;
     width: 100%;
     overscroll-behavior-x: none;
-    touch-action: pan-y; /* 가로 스와이프 제스처 자체를 비활성 */
   }
   body {
-    overflow-x: clip; /* body에만 적용 */
+    overflow-x: clip;
+    touch-action: pan-y; /* body에만 적용 — html에서 제외해 button tap 상속 차단 */
   }
   /* 가로 스크롤이 필요한 캐러셀은 자체적으로 pan-x 허용 */
   .cases-grid, .use-cases-track, [data-scroll-x] {
@@ -1857,7 +1857,7 @@ body.menu-open .navbar { opacity: 0; pointer-events: none; }
     width: auto;
   }
 
-  /* 햄버거 */
+  /* 햄버거 — tap 이벤트 명시 + viewport 고정 안전장치 */
   .hamburger {
     display: flex !important;
     visibility: visible !important;
@@ -1876,10 +1876,12 @@ body.menu-open .navbar { opacity: 0; pointer-events: none; }
     padding: 0;
     margin: 0;
     flex-shrink: 0;
-    pointer-events: auto;
+    pointer-events: auto !important;
     cursor: pointer;
     position: relative;
     z-index: 10;
+    touch-action: manipulation; /* 핵심 — body의 pan-y 상속 차단, tap 이벤트 활성화 */
+    -webkit-tap-highlight-color: rgba(0,0,0,0.1);
   }
   .hamburger:active { transform: scale(0.94); }
   .hamburger span {
