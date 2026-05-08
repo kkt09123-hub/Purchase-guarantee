@@ -314,16 +314,21 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
 .mobile-menu {
   display: none;
   position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(11, 31, 74, 0.96);
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100dvh;
+  background: rgba(11, 31, 74, 0.98);
   backdrop-filter: blur(28px);
   -webkit-backdrop-filter: blur(28px);
-  z-index: 999;
+  z-index: 1100;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 32px;
+  box-sizing: border-box;
 }
+/* 메뉴 열린 동안 navbar 숨김 */
+body.menu-open .navbar { opacity: 0; pointer-events: none; }
 .mobile-menu.open { display: flex; }
 .mobile-menu.open a {
   animation: menuItemIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
@@ -344,14 +349,22 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
 }
 .mobile-menu-close {
   position: absolute;
-  top: 24px; right: 24px;
-  font-size: 28px;
+  top: 16px; right: 16px;
+  width: 44px;
+  height: 44px;
+  font-size: 26px;
   color: var(--white);
-  background: none;
-  border: none;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 50%;
   cursor: pointer;
-  opacity: 0.7;
+  opacity: 0.9;
   transition: opacity 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  z-index: 2;
 }
 .mobile-menu-close:hover { opacity: 1; }
 

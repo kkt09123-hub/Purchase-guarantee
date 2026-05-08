@@ -34,9 +34,18 @@ const hamburger = document.getElementById('hamburger');
 const mobileMenu = document.getElementById('mobileMenu');
 const mobileMenuClose = document.getElementById('mobileMenuClose');
 
-hamburger.addEventListener('click', () => mobileMenu.classList.add('open'));
-mobileMenuClose.addEventListener('click', () => mobileMenu.classList.remove('open'));
-function closeMobileMenu() { mobileMenu.classList.remove('open'); }
+hamburger.addEventListener('click', () => {
+  mobileMenu.classList.add('open');
+  document.body.classList.add('menu-open');
+});
+mobileMenuClose.addEventListener('click', () => {
+  mobileMenu.classList.remove('open');
+  document.body.classList.remove('menu-open');
+});
+function closeMobileMenu() {
+  mobileMenu.classList.remove('open');
+  document.body.classList.remove('menu-open');
+}
 
 /* ---------- Hero 비디오 fallback ---------- */
 const heroVideo = document.querySelector('.hero-video');
