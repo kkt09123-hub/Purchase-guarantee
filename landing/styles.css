@@ -494,6 +494,8 @@ body.menu-open .navbar { opacity: 0; pointer-events: none; }
   opacity: 0;
   animation: heroPartnerIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.50s both;
 }
+.hero-partner-mobile { display: none; }
+.hero-partner-desktop { display: inline; }
 @keyframes heroPartnerIn {
   from { opacity: 0; transform: translateY(6px); }
   to   { opacity: 1; transform: translateY(0); }
@@ -1892,12 +1894,13 @@ body.menu-open .navbar { opacity: 0; pointer-events: none; }
   .hero { align-items: stretch; min-height: 100dvh; }
   .hero-video,
   .hero-bg-img { display: none; }
+  /* A. 오버레이 강화 — 텍스트 가독성 우선 */
   .hero-overlay {
     background: linear-gradient(
       180deg,
-      rgba(11, 31, 74, 0.55) 0%,
-      rgba(11, 31, 74, 0.72) 55%,
-      rgba(11, 31, 74, 0.88) 100%
+      rgba(11, 31, 74, 0.65) 0%,
+      rgba(11, 31, 74, 0.82) 50%,
+      rgba(11, 31, 74, 0.95) 100%
     );
   }
   .hero-media::before {
@@ -1908,30 +1911,67 @@ body.menu-open .navbar { opacity: 0; pointer-events: none; }
   .hero-content { padding: 100px 20px 40px; align-items: center; }
   .hero-eyebrow {
     gap: 10px;
-    margin-bottom: 22px;
+    margin-bottom: 18px;
   }
   .hero-eyebrow::before, .hero-eyebrow::after { width: 28px; }
   .hero-eyebrow span {
     font-size: 13px;
     letter-spacing: 0.12em;
   }
-  .hero-title { font-size: clamp(28px, 7vw, 38px); margin-bottom: 20px; }
-  .hero-title-line:nth-child(2) { font-size: clamp(36px, 9vw, 50px); }
+  /* B. 타이틀 단순화 — 흰색 통일, "현금 입금"만 골드 */
+  .hero-title {
+    font-size: clamp(28px, 8vw, 38px);
+    line-height: 1.15;
+    margin-bottom: 18px;
+  }
+  .hero-title-line { color: #fff !important; }
+  .hero-title .line-cream { color: #fff !important; }
+  .hero-title-line:nth-child(2) {
+    font-size: clamp(30px, 8.5vw, 42px);
+    line-height: 1.15;
+  }
   .hero-sub { font-size: clamp(14px, 3.4vw, 16px); margin-bottom: 28px; }
-  .hero-partner-line { font-size: 12px; margin-bottom: 16px; }
-  .hero-cta { flex-direction: column; align-items: center; gap: 12px; }
+  /* C. 파트너 라인 — 살짝 흐리게, separator 변경 */
+  .hero-partner-line {
+    font-size: 13px;
+    line-height: 1.4;
+    color: rgba(255,255,255,0.78);
+    opacity: 0.78;
+    margin-bottom: 14px;
+    letter-spacing: 0.02em;
+  }
+  .hero-partner-desktop { display: none; }
+  .hero-partner-mobile { display: inline; }
+  /* D. CTA — Primary 골드 강조, Secondary 반투명 흰색 */
+  .hero-cta { flex-direction: column; align-items: center; gap: 12px; margin-top: 4px; }
   .hero-cta .btn { width: 100%; max-width: 320px; }
+  .hero-cta-outline {
+    background: rgba(255,255,255,0.12) !important;
+    border: 1px solid rgba(255,255,255,0.40) !important;
+    color: #fff !important;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+  }
   .btn-large { padding: 16px 32px; font-size: 16px; }
-  /* 칩 2×2 그리드 */
+  /* E. 칩 2×2 그리드 — 배경 진하게, 흰색 텍스트 */
   .hero-chips {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 8px;
-    margin-top: 24px;
+    margin-top: 28px;
     width: 100%;
     max-width: 320px;
   }
-  .hero-chip { font-size: 12px; height: auto; padding: 6px 10px; white-space: normal; text-align: center; }
+  .hero-chip {
+    font-size: 12px;
+    height: auto;
+    padding: 8px 10px;
+    white-space: normal;
+    text-align: center;
+    background: rgba(255,255,255,0.16);
+    border: 1px solid rgba(255,255,255,0.22);
+    color: #fff;
+  }
   .hero-rotator { font-size: clamp(15px, 4.2vw, 19px); height: 30px; margin-bottom: 16px; }
 
   /* ── D. 페인포인트 인용 컴팩트 ── */
@@ -1979,17 +2019,23 @@ body.menu-open .navbar { opacity: 0; pointer-events: none; }
   /* 히어로 스크롤 힌트 — 모바일에선 trust 라벨과 충돌, 숨김 */
   .hero-scroll-hint { display: none; }
 
-  .trust--hero { padding: 10px 0; }
-  .trust--hero .trust-label { margin-bottom: 6px; font-size: 10px; }
+  /* F. 파트너 로고 영역 — hero 내부 컴팩트화 */
+  .trust--hero { padding: 8px 0; }
+  .trust--hero .trust-label {
+    margin-bottom: 6px;
+    font-size: 11px;
+    opacity: 0.6;
+    letter-spacing: 0.08em;
+  }
   /* 모바일: 그레이스케일 제거, 원본 컬러 유지 + 사이즈 축소 */
-  .trust--hero .trust-logo { opacity: 1; }
+  .trust--hero .trust-logo { opacity: 0.9; }
   .trust--hero .trust-logo img {
-    height: 32px;
+    height: 28px;
     filter: none;
     opacity: 1;
   }
-  .trust--hero .trust-logo--xl img { height: 44px; }
-  .trust--hero .trust-track { gap: 28px; }
+  .trust--hero .trust-logo--xl img { height: 32px; }
+  .trust--hero .trust-track { gap: 24px; }
 
   /* ── G. 대상 업종 — 가로 스와이프 카드 (snap + peek) ── */
   /* #cases 섹션 자체를 overflow: clip으로 감싸서 음수마진 없이 전폭 처리 */
