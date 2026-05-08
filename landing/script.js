@@ -72,8 +72,8 @@ if (heroVideo) {
   if (!wrap) return;
   const items = wrap.querySelectorAll('.rotator-item');
   if (items.length < 2) return;
-  const interval = 1400;     // 1.4s
-  const startDelay = 850;    // 0.45s 진입 + 0.4s 노출 후 다음으로
+  const interval = 700;      // 0.7s (1.4s에서 절반 단축)
+  const startDelay = 425;    // 0.21s 진입 + 0.21s 노출 후 다음으로
   let i = 0;
   function next() {
     items[i].classList.remove('is-active');

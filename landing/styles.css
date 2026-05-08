@@ -537,26 +537,27 @@ body.menu-open .navbar { opacity: 0; pointer-events: none; }
 
 /* Hero — 자체 진입 애니메이션 (data-reveal 미사용, 페이지 로드 즉시) */
 
-/* 배경 영상 진입 + 상시 켄 번스 */
+/* 배경 영상 진입 + 상시 켄 번스 — 더 동적으로 */
 .hero-video,
 .hero-bg-img {
-  animation: heroBgIn 1.4s cubic-bezier(0.16, 1, 0.3, 1) both,
-             kenBurns 12s ease-in-out 1.4s infinite;
+  animation: heroBgIn 1.0s cubic-bezier(0.16, 1, 0.3, 1) both,
+             kenBurns 8s ease-in-out 1.0s infinite;
 }
 .hero-overlay {
-  animation: heroOverlayIn 1.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: heroOverlayIn 1.0s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 @keyframes heroBgIn {
-  from { transform: scale(1.05); }
-  to   { transform: scale(1.0); }
+  from { transform: scale(1.12) translateX(-1.5%); }
+  to   { transform: scale(1.0) translateX(0); }
 }
 @keyframes heroOverlayIn {
   from { opacity: 0.85; }
   to   { opacity: 1; }
 }
 @keyframes kenBurns {
-  0%, 100% { transform: scale(1.0); }
-  50%      { transform: scale(1.04); }
+  0%   { transform: scale(1.0)  translate(0, 0); }
+  50%  { transform: scale(1.07) translate(-1%, -0.5%); }
+  100% { transform: scale(1.0)  translate(0, 0); }
 }
 
 /* eyebrow */
@@ -587,8 +588,8 @@ body.menu-open .navbar { opacity: 0; pointer-events: none; }
   color: var(--cream-soft);
   letter-spacing: -0.005em;
   opacity: 0;
-  animation: rotatorWrapIn 0.4s ease-out 0.45s forwards,
-             rotatorWrapOut 0.5s ease-in 4.55s forwards;
+  animation: rotatorWrapIn 0.3s ease-out 0.20s forwards,
+             rotatorWrapOut 0.4s ease-in 2.30s forwards;
 }
 @keyframes rotatorWrapIn {
   from { opacity: 0; }
@@ -622,8 +623,8 @@ body.menu-open .navbar { opacity: 0; pointer-events: none; }
   transform: translateY(20px);
   animation: heroTitleLineIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
-.hero-title-line:nth-child(1) { animation-delay: 5.30s; }
-.hero-title-line:nth-child(2) { animation-delay: 5.50s; }
+.hero-title-line:nth-child(1) { animation-delay: 2.65s; }
+.hero-title-line:nth-child(2) { animation-delay: 2.80s; }
 @keyframes heroTitleLineIn {
   to { opacity: 1; filter: blur(0); transform: translateY(0); }
 }
@@ -1924,11 +1925,31 @@ body.menu-open .navbar { opacity: 0; pointer-events: none; }
     min-height: calc(100dvh - 100px);
     box-sizing: border-box;
   }
-  /* 칩은 모바일에서 숨김 */
-  .hero-chips { display: none !important; }
-  /* CTA 하단으로 푸시 */
-  .hero-content .hero-cta {
+  /* 칩 — 2개만(보증비율, 5년 우대), 1행 가로 배치, CTA 바로 위 */
+  .hero-chips {
+    display: flex !important;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    max-width: none;
     margin-top: auto !important;
+    margin-bottom: 12px;
+    grid-template-columns: none;
+  }
+  .hero-chips .hero-chip:nth-child(1),
+  .hero-chips .hero-chip:nth-child(2) { display: none !important; }
+  .hero-chips .hero-chip:nth-child(3),
+  .hero-chips .hero-chip:nth-child(4) {
+    flex: 0 1 auto;
+    font-size: 12px;
+    padding: 7px 12px;
+    white-space: nowrap;
+  }
+  /* CTA — 칩 바로 아래 */
+  .hero-content .hero-cta {
+    margin-top: 0 !important;
     margin-bottom: 8px;
     width: 100%;
   }
