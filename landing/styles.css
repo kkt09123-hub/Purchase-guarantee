@@ -2313,3 +2313,27 @@ body.menu-open .navbar { opacity: 0; pointer-events: none; }
     scroll-behavior: auto !important;
   }
 }
+
+/* ============================================================
+   DEBUG: 햄버거 가시성 강제 — 임시 진단용
+   모바일에서 빨간 사각형이 우상단에 보이면 = 햄버거가 렌더링되고 있음 (스타일 문제)
+   안 보이면 = 모바일 미디어쿼리가 적용 안 되거나 Vercel 배포 미반영
+   ============================================================ */
+@media (max-width: 768px) {
+  .hamburger {
+    background: #ff0000 !important;
+    border: 2px solid #fff !important;
+    border-radius: 8px !important;
+    box-shadow: 0 0 0 3px #ff0000, 0 4px 16px rgba(255,0,0,0.5) !important;
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    z-index: 9999 !important;
+    position: relative !important;
+  }
+  .hamburger span {
+    background: #ffffff !important;
+    width: 24px !important;
+    height: 3px !important;
+  }
+}
