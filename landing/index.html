@@ -49,10 +49,13 @@
   <!-- ==================== HERO ==================== -->
   <section id="hero" class="hero">
     <div class="hero-media">
-      <video class="hero-video" autoplay loop muted playsinline poster="images/hero/배경이미지.png">
+      <video class="hero-video" autoplay loop muted playsinline poster="images/hero/desktop/배경이미지.png">
         <source src="images/hero/배경영상.mp4" type="video/mp4">
       </video>
-      <img class="hero-bg-img" src="images/hero/배경이미지.png" alt="공동구매보증 히어로" style="display:none;" id="heroBgFallback">
+      <picture>
+        <source media="(max-width: 768px)" srcset="images/hero/mobile/배경이미지.png">
+        <img class="hero-bg-img" src="images/hero/desktop/배경이미지.png" alt="공동구매보증 히어로" id="heroBgFallback">
+      </picture>
       <div class="hero-overlay"></div>
     </div>
     <div class="hero-content">
