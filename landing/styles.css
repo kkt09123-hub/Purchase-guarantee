@@ -1750,10 +1750,11 @@ body.menu-open .navbar { opacity: 0; pointer-events: none; }
 
 @media (max-width: 768px) {
   /* ── A. 가로 스와이프/오버플로우 완전 차단 ── */
-  /* 가로 차단 룰 완화 — 햄버거 정상 동작 우선 */
+  /* 가로 스크롤 차단 — 페이지가 viewport 폭을 절대 초과하지 못하게 */
   html, body {
     max-width: 100%;
     width: 100%;
+    overflow-x: hidden; /* 가로 스와이프 차단 */
   }
 
   /* overflow 유발 요소들 — 폭 초과 방지 */
