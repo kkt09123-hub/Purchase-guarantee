@@ -1855,20 +1855,26 @@ body.menu-open .navbar { opacity: 0; pointer-events: none; }
   /* 햄버거 */
   .hamburger {
     display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 5px;
     width: 44px;
     height: 44px;
+    min-width: 44px;
     background: none;
     border-radius: 0;
     box-shadow: none;
     border: none;
     padding: 0;
+    margin: 0;
     flex-shrink: 0;
     pointer-events: auto;
     cursor: pointer;
+    position: relative;
+    z-index: 10;
   }
   .hamburger:active { transform: scale(0.94); }
   .hamburger span {
