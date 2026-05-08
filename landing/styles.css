@@ -1758,17 +1758,27 @@ body.menu-open .navbar { opacity: 0; pointer-events: none; }
 }
 
 @media (max-width: 768px) {
-  /* ── A. 가로 오버플로우 차단 — 근본 원인 수정 ── */
-  html, body { overflow-x: clip; max-width: 100%; width: 100%; }
+  /* ── A. 가로 스와이프/오버플로우 완전 차단 ── */
+  html, body {
+    overflow-x: clip;
+    max-width: 100%;
+    width: 100%;
+    overscroll-behavior-x: none;
+    touch-action: pan-y; /* 가로 스와이프 제스처 자체를 비활성 */
+  }
+  /* 가로 스크롤이 필요한 캐러셀은 자체적으로 pan-x 허용 */
+  .cases-grid, .use-cases-track, [data-scroll-x] {
+    touch-action: pan-x;
+  }
 
   /* overflow 유발 요소들 — 폭 초과 방지 */
-  .trust-track-wrap { overflow: hidden; max-width: 100vw; }
-  .trust-track { max-width: none; } /* width: max-content 유지, 부모가 clamp */
+  .trust-track-wrap { overflow: hidden; max-width: 100%; }
+  .trust-track { max-width: none; }
   .hero-chips { max-width: 100%; box-sizing: border-box; }
   .hero-partner-line { max-width: 100%; overflow: hidden; white-space: normal; word-break: keep-all; }
-  .hero-content { max-width: 100vw; box-sizing: border-box; overflow: hidden; }
-  .container { max-width: 100vw; box-sizing: border-box; }
-  section, .section { max-width: 100vw; overflow-x: hidden; box-sizing: border-box; }
+  .hero-content { max-width: 100%; box-sizing: border-box; overflow: hidden; }
+  .container { max-width: 100%; box-sizing: border-box; }
+  section, .section { max-width: 100%; overflow-x: clip; box-sizing: border-box; }
 
   /* ── K. 섹션 padding ── */
   :root { --section-py: 56px; }
@@ -1780,7 +1790,7 @@ body.menu-open .navbar { opacity: 0; pointer-events: none; }
     left: 0;
     right: 0;
     width: 100%;
-    max-width: 100vw;
+    max-width: 100%;
     transform: translateY(0);
     background: rgba(255, 255, 255, 0.97) !important;
     border: none !important;
