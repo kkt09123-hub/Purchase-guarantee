@@ -1925,7 +1925,7 @@ body.menu-open .navbar { opacity: 0; pointer-events: none; }
     min-height: calc(100dvh - 100px);
     box-sizing: border-box;
   }
-  /* 칩 — 2개만(보증비율, 5년 우대), 1행 가로 배치, CTA 바로 위 */
+  /* 칩 — 2개만(보증비율, 5년 우대), 1행 가로 배치, 하단 영역 (CTA 위) */
   .hero-chips {
     display: flex !important;
     flex-direction: row;
@@ -1934,9 +1934,10 @@ body.menu-open .navbar { opacity: 0; pointer-events: none; }
     gap: 8px;
     width: 100%;
     max-width: none;
-    margin-top: auto !important;
-    margin-bottom: 12px;
+    margin-top: auto !important; /* 본문(sub)과의 빈 공간을 채워 하단으로 이동 */
+    margin-bottom: 10px;
     grid-template-columns: none;
+    order: 10; /* CTA보다 위, sub보다 아래 */
   }
   .hero-chips .hero-chip:nth-child(1),
   .hero-chips .hero-chip:nth-child(2) { display: none !important; }
@@ -1947,11 +1948,12 @@ body.menu-open .navbar { opacity: 0; pointer-events: none; }
     padding: 7px 12px;
     white-space: nowrap;
   }
-  /* CTA — 칩 바로 아래 */
+  /* CTA — 칩 바로 아래, 히어로 최하단 */
   .hero-content .hero-cta {
     margin-top: 0 !important;
     margin-bottom: 8px;
     width: 100%;
+    order: 11; /* chips 다음 */
   }
   .hero-eyebrow {
     gap: 10px;
@@ -2081,22 +2083,30 @@ body.menu-open .navbar { opacity: 0; pointer-events: none; }
   /* 히어로 스크롤 힌트 — 모바일에선 trust 라벨과 충돌, 숨김 */
   .hero-scroll-hint { display: none; }
 
-  /* F. 파트너 로고 영역 — hero 내부 컴팩트화 */
-  .trust--hero { padding: 8px 0; }
-  .trust--hero .trust-label {
-    margin-bottom: 6px;
-    font-size: 11px;
-    opacity: 0.6;
-    letter-spacing: 0.08em;
+  /* F. 파트너 로고 영역 — 밝은 배경으로 가독성 ↑ */
+  .trust--hero {
+    padding: 14px 0 12px;
+    background: rgba(248, 244, 232, 0.96) !important; /* 따뜻한 오프화이트 */
+    border-top: 1px solid rgba(196,169,106,0.35) !important;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
   }
-  /* 모바일: 그레이스케일 제거, 원본 컬러 유지 + 사이즈 축소 */
-  .trust--hero .trust-logo { opacity: 0.9; }
+  .trust--hero .trust-label {
+    margin-bottom: 8px;
+    font-size: 11px;
+    opacity: 0.7;
+    color: var(--navy-deep) !important;
+    letter-spacing: 0.08em;
+    font-weight: 600;
+  }
+  /* 모바일: 원본 컬러 유지 + 사이즈 살짝 키움 */
+  .trust--hero .trust-logo { opacity: 1; }
   .trust--hero .trust-logo img {
-    height: 28px;
+    height: 32px;
     filter: none;
     opacity: 1;
   }
-  .trust--hero .trust-logo--xl img { height: 32px; }
+  .trust--hero .trust-logo--xl img { height: 36px; }
   .trust--hero .trust-track { gap: 24px; }
 
   /* ── G. 대상 업종 — 가로 스와이프 카드 (snap + peek) ── */
