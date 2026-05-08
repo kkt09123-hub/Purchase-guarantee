@@ -2127,10 +2127,19 @@ body.menu-open .navbar { opacity: 0; pointer-events: none; }
   }
   .cases-grid::-webkit-scrollbar { display: none; }
   .case-card {
-    flex: 0 0 82%;
+    flex: 0 0 86%;
     scroll-snap-align: center;
-    aspect-ratio: 4/3;
+    aspect-ratio: 4/5; /* 세로형 — 가로보다 세로 길게 */
     min-width: 0;
+  }
+  .case-card .case-title {
+    font-size: 22px !important;
+    line-height: 1.25 !important;
+  }
+  .case-card .case-desc {
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+    word-break: keep-all;
   }
   /* 스와이프 힌트 — 카드 컨테이너 우측에 살짝 보이는 그라디언트로 "더 있음" 신호 */
   #cases > .container { position: relative; overflow: clip; }
