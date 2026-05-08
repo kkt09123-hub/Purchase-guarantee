@@ -1760,11 +1760,13 @@ body.menu-open .navbar { opacity: 0; pointer-events: none; }
 @media (max-width: 768px) {
   /* ── A. 가로 스와이프/오버플로우 완전 차단 ── */
   html, body {
-    overflow-x: clip;
     max-width: 100%;
     width: 100%;
     overscroll-behavior-x: none;
     touch-action: pan-y; /* 가로 스와이프 제스처 자체를 비활성 */
+  }
+  body {
+    overflow-x: clip; /* body에만 적용 */
   }
   /* 가로 스크롤이 필요한 캐러셀은 자체적으로 pan-x 허용 */
   .cases-grid, .use-cases-track, [data-scroll-x] {
@@ -1880,9 +1882,9 @@ body.menu-open .navbar { opacity: 0; pointer-events: none; }
   .hamburger span {
     width: 22px;
     height: 2px;
-    background: var(--navy-deep);
+    background: var(--navy-deep) !important;
     border-radius: 2px;
-    display: block;
+    display: block !important;
   }
   .navbar.scrolled .hamburger span { background: var(--navy-deep); }
 
