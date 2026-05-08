@@ -1746,7 +1746,7 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
 
 @media (max-width: 768px) {
   /* ── A. 가로 오버플로우 차단 — 근본 원인 수정 ── */
-  html, body { overflow-x: hidden; max-width: 100vw; }
+  html, body { overflow-x: clip; max-width: 100%; width: 100%; }
 
   /* overflow 유발 요소들 — 폭 초과 방지 */
   .trust-track-wrap { overflow: hidden; max-width: 100vw; }
@@ -1961,18 +1961,20 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
   .trust--hero .trust-track { gap: 28px; }
 
   /* ── G. 대상 업종 — 가로 스와이프 카드 (snap + peek) ── */
+  /* #cases 섹션 자체를 overflow: clip으로 감싸서 음수마진 없이 전폭 처리 */
+  #cases { overflow: clip; }
   .cases-grid {
     display: flex !important;
     grid-template-columns: none;
     overflow-x: auto;
-    overflow-y: hidden;
+    overflow-y: visible;
     scroll-snap-type: x mandatory;
     gap: 12px;
-    padding: 8px 16px 28px;
-    margin: 0 -24px;
+    padding: 8px 24px 28px;
+    margin: 0;
     scrollbar-width: none;
     -webkit-overflow-scrolling: touch;
-    scroll-padding: 0 16px;
+    scroll-padding: 0 24px;
   }
   .cases-grid::-webkit-scrollbar { display: none; }
   .case-card {
@@ -1982,7 +1984,7 @@ button { cursor: pointer; border: none; background: none; font-family: var(--fon
     min-width: 0;
   }
   /* 스와이프 힌트 — 카드 컨테이너 우측에 살짝 보이는 그라디언트로 "더 있음" 신호 */
-  #cases > .container { position: relative; }
+  #cases > .container { position: relative; overflow: clip; }
   #cases > .container::after {
     content: '';
     position: absolute;
